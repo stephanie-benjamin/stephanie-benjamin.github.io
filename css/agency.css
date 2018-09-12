@@ -111,7 +111,7 @@ img::-moz-selection {
   right: 0;
   padding: 13px;
   text-transform: uppercase;
-  color: white;
+  color: black;
   border: 0;
   background-color: #fed136;
   font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -141,13 +141,10 @@ img::-moz-selection {
 
 @media (min-width: 992px) {
   #mainNav {
-    padding-top: 25px;
-    padding-bottom: 25px;
     -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
     -moz-transition: padding-top 0.3s, padding-bottom 0.3s;
     transition: padding-top 0.3s, padding-bottom 0.3s;
     border: none;
-    background-color: transparent;
   }
   #mainNav .navbar-brand {
     font-size: 1.75em;
@@ -171,11 +168,11 @@ img::-moz-selection {
 
 header.masthead {
   text-align: center;
-  color: white;
-  background-image: url("../img/header-bg.jpg");
+  color: black;
+  background-image: url("../img/header-bg_scaled.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-position: center center;
+  background-position: center bottom;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -183,7 +180,7 @@ header.masthead {
 }
 
 header.masthead .intro-text {
-  padding-top: 150px;
+  padding-top: 8950px;
   padding-bottom: 100px;
 }
 
@@ -196,6 +193,7 @@ header.masthead .intro-text .intro-lead-in {
 }
 
 header.masthead .intro-text .intro-heading {
+  padding-top: 350px;
   font-size: 50px;
   font-weight: 700;
   line-height: 50px;

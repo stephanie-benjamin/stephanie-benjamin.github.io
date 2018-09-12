@@ -6,7 +6,7 @@
     right: 0;
     padding: 13px;
     text-transform: uppercase;
-    color: white;
+    color: black;
     border: 0;
     background-color: $primary;
     @include heading-font;
@@ -40,13 +40,10 @@
 }
 @media(min-width:992px) {
   #mainNav {
-    padding-top: 25px;
-    padding-bottom: 25px;
     -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
     -moz-transition: padding-top 0.3s, padding-bottom 0.3s;
     transition: padding-top 0.3s, padding-bottom 0.3s;
     border: none;
-    background-color: transparent;
     .navbar-brand {
       font-size: 1.75em;
       -webkit-transition: all 0.3s;
