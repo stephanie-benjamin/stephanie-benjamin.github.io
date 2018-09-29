@@ -30,7 +30,20 @@ var  last_junior_vin_screen_id = "last-adult-vin-screen";
 /*
     ids of forms input
 */
-var name_adult = "name-adult";
+/* first screen */
+var input_pattern = 'input#';
+var vin_honneur_id = input_pattern + 'vin_honneur';
+var banquet_id = input_pattern + 'banquet';
+var number_adult_id = input_pattern + 'number_adult';
+var number_bambino_id = input_pattern + 'number_bambino';
+var number_junior_id = input_pattern + 'number_junior';
+
+/* adult screen */
+var name_adult_id = "name-adult";
+var start_checkbox_1_id = "starter-adult-banquet-1";
+var start_checkbox_2_id = "starter-adult-banquet-2";
+var main_checkbox_1_id = "main-adult-banquet-1";
+var main_checkbox_2_id = "main-adult-banquet-2";
 var starter_adult_banquet = "starter-adult-banquet";
 var main_adult_banquet = "main-adult-banquet";
 var last_prefix = "last-";
@@ -51,7 +64,7 @@ var current_nb_junior = 0;
 var current_screen;
 
 function is_last_adult() {
-    return current_nb_adult == 1;
+    return current_nb_adult == 0;
 }
 
 function no_children() {
@@ -66,10 +79,46 @@ function no_junior() {
     return current_nb_junior == 0;
 }
 
-var adults = new List();
-var bambinos = new List();
-var junior = new List();
+/*
+    arrays that will store the needed values
+*/
+var adults = [];
+var juniors = [];
+var bambinos = [];
 
+function Adult(name, attend_to_vin_honneur, attend_to_diner, starter_1, starter_2, main_1, main_2) {
+    this.name = name;
+    this.attend_to_vin_honneur = attend_to_vin_honneur;
+    this.attend_to_diner = attend_to_diner;
+    this.starter_1 = starter_1;
+    this.starter_2 = starter_2;
+    this.main_1 = main_1;
+    this.main_2 = main_2;
+}
+
+var current_name = "";
+var starter_1 = false;
+var starter_2 = false;
+var main_1 = false;
+var main_2 = false;
+
+function printAdult(adult) {
+    console.log(adult.name + ", " + adult.attend_to_vin_honneur + ", " + adult.attend_to_diner + ", " + adult.starter_1 + ", " + adult.starter_2 + ", " + adult.main_1+ ", " + adult.main_2)
+}
+
+function addAdult(parent_fieldset) {
+    current_name = parent_fieldset.find(input_pattern + name_adult_id)[0].value;
+    if (banquet) {
+        starter_1 = parent_fieldset.find(input_pattern + start_checkbox_1_id)[0].checked;
+        starter_2 = parent_fieldset.find(input_pattern + start_checkbox_2_id)[0].checked;
+        main_1 = parent_fieldset.find(input_pattern + main_checkbox_1_id)[0].checked;
+        main_2 = parent_fieldset.find(input_pattern + main_checkbox_2_id)[0].checked;
+    }
+    var adult = new Adult(current_name, vin_honneur, banquet, starter_1, starter_2, main_1, main_2)
+    adults.push(adult);
+    console.log(adult.name + ", " + adult.attend_to_vin_honneur + ", " + adult.attend_to_diner + ", " + adult.starter_1 + ", " + adult.starter_2 + ", " + adult.main_1+ ", " + adult.main_2);
+    current_nb_adult--;
+}
 
 jQuery(document).ready(function() {
     /*
@@ -87,15 +136,6 @@ jQuery(document).ready(function() {
     $('.form-wizard .btn-next').on('click', function() {
     	var parent_fieldset = $(this).parents('fieldset');
     	var next_step = true;
-
-    	var isAdult = false;
-    	var isBambino = false;
-    	var isJunior = false;
-
-        var name;
-        var starter;
-        var main;
-
     	// fields validation
     	parent_fieldset.find('input').each(function() {
     		if($(this)[0].required && $(this).val() == "" ) {
@@ -104,53 +144,28 @@ jQuery(document).ready(function() {
     		} else {
     			$(this).removeClass('input-error');
     		}
-    		// checking out first screen answer
-    	    if (parent_fieldset[0].id == first_screen_id) {
-    	        switch($(this)[0].id) {
-    	            case 'vin_honneur':
-    	                vin_honneur = $(this)[0].checked;
-    	                break;
-    	            case 'banquet':
-                        banquet = $(this)[0].checked;
-                        break;
-                    case "number_adult":
-                        nb_adult = $(this)[0].value;
-                        current_nb_adult = nb_adult;
-                        break;
-    	        }
-    	    }
     	});
     	// fields validation
-
-        //console.log(vin_honneur)
-        //console.log(banquet);
-        //console.log(nb_adult);
-        //console.log(current_nb_adult);
-
-        //console.log($('.form-wizard fieldset#first_screen'));
-
         var next_screen;
+        /* first screen validation */
     	if (current_screen[0].id == first_screen_id) {
+    	    vin_honneur = parent_fieldset.find(vin_honneur_id)[0].checked;
+    	    banquet = parent_fieldset.find(banquet_id)[0].checked;
+    	    nb_adult = parent_fieldset.find(number_adult_id)[0].value;
+    	    current_nb_adult = nb_adult - 1;
             if (!banquet) {
                 next_screen = $(form_prefix_id + (is_last_adult() && no_children() ? last_prefix : "") + adult_vin_screen_id);
             } else {
                 next_screen = $(form_prefix_id + (is_last_adult() && no_children() ? last_prefix : "") + adult_banquet_screen_id);
             }
-            current_nb_adult--;
+        /* adult screen² validation */
         } else if (current_screen[0].id.startsWith("adult")) {
-
-            // retrieve info of adult
-
+            addAdult(parent_fieldset);
             if (!banquet) {
-                next_screen = $(form_prefix_id + ( is_last_adult ?
-                    (no_bambino ? junior_vin_screen_id : bambino_vin_screen_id) : adult_vin_screen_id)
-                );
+                next_screen = $(form_prefix_id + ( is_last_adult() ? last_prefix : "") + adult_vin_screen_id);
             } else {
-                next_screen = $(form_prefix_id + ( is_last_adult ?
-                    (no_bambino ? junior_banquet_screen_id : bambino_banquet_screen_id) : adult_banquet_screen_id)
-                );
+                next_screen = $(form_prefix_id + ( is_last_adult() ? last_prefix : "") + adult_banquet_screen_id);
             }
-            current_nb_adult--;
         }
     	if(next_step) {
     		parent_fieldset.fadeOut(400, function() {
@@ -191,7 +206,7 @@ jQuery(document).ready(function() {
 
     // submit
     $('.form-wizard .btn-submit').on('click', function(e) {
-        console.log("TODO SUBMIT TODO")
+        var parent_fieldset = $(this).parents('fieldset');
     	// fields validation
         $(this).find('.required').each(function() {
             if( $(this).val() == "" ) {
@@ -201,7 +216,13 @@ jQuery(document).ready(function() {
         	    $(this).removeClass('input-error');
         	}
         });
-        // fields validation
+        if (current_screen[0].id.startsWith("last-adult")) {
+            addAdult(parent_fieldset);
+        }
+        for(var i = 0 ; i < nb_adult ; i++) {
+            var adult = adults[i];
+            console.log(adult.name + ", " + adult.attend_to_vin_honneur + ", " + adult.attend_to_diner + ", " + adult.starter_1 + ", " + adult.starter_2 + ", " + adult.main_1+ ", " + adult.main_2);
+        }
     });
 });
 
