@@ -337,10 +337,10 @@
                 <div class="col-lg-2 text-center"></div>
                 <div class="col-lg-8">
                     <div class="form-wizard">
-                        <!-- Form Wizard -->
                         <form role="form" action="" method="post">
                             <h3>Confirm attendance</h3>
-                            <fieldset>
+
+                            <fieldset id="first-screen">
                                 <div class="form-group">
                                     <label>Attend to:</label>
                                 </div>
@@ -363,30 +363,34 @@
                                 <div class="form-group">
                                     <label for="number_adult">Number Of Adult:</label>
                                     <input type="number" id="number_adult" name="number_adult"
-                                           value="1"
                                            min="1" max="10"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="number_child">Number Of Kiddos:</label>
+                                    <label for="number_child">Number Of Bambinos(between 3 and 8):</label>
                                     <input type="number" id="number_child" name="number_child"
-                                           value="0"
-                                           min="0" max="10"/>
+                                           min="0" max="10" value="0"/>
                                 </div>
-                                <button type="button" class="btn btn-next">Next</button>
+                                <div class="form-group">
+                                    <label for="number_child">Number Of Junior(between 8 and 14):</label>
+                                    <input type="number" id="number_junior" name="number_junior"
+                                           min="0" max="10" value="0"/>
+                                </div>
+                                <div class="form-wizard-buttons">
+                                    <button type="button" class="btn btn-next">Next</button>
+                                </div>
+
                             </fieldset>
 
-                            <fieldset>
+                            <fieldset id="adult-banquet-screen">
                                 <div class="form-group">
                                     <h3>Adult</h3>
-
                                     <div class="form-group">
                                         <label for="name_adult">Name</label>
-                                        <input type="text" class="form-control" id="name_adult"
+                                        <input type="text" class="form-control" id="name-adult"
                                                aria-describedby="nameHelp" placeholder="Enter your name">
-                                        <small id="nameHelp" class="form-text text-muted">Please, enter your full name
+                                        <small id="nameHelp-abs" class="form-text text-muted">Please, enter your full name
                                         </small>
                                     </div>
-
                                     <div class="form-group">
                                         <div class="form-group">
                                             <label>Choose your starter:</label>
@@ -396,7 +400,70 @@
                                             <div class="form-check">
                                                 <label class="form-check-label">
                                                     <input type="radio" class="form-check-input" name="optionsStarter"
-                                                           id="starter1" value="starter1" checked>
+                                                           id="starter-adult-banquet-1" value="starter1" checked required>
+                                                    Starter 1
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input type="radio" class="form-check-input" name="optionsStarter"
+                                                           id="starter-adult-banquet-2" value="starter2">
+                                                    Starter 2
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3"></div>
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label>Choose your main course:</label>
+                                        </div>
+                                        <div class="col-lg-3"></div>
+                                        <div class="col-lg-6">
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input type="radio" class="form-check-input" name="optionsMain"
+                                                           id="main-adult-banquet-1" value="main_course1" checked>
+                                                    Main Course 1
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input type="radio" class="form-check-input" name="optionsMain"
+                                                           id="main-adult-banquet-2" value="main_course2">
+                                                    Main Course 2
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2"></div>
+                                </div>
+                                <div class="form-wizard-buttons">
+                                    <button type="button" class="btn btn-previous">Previous</button>
+                                    <button type="submit" class="btn btn-next">Next</button>
+                                </div>
+                            </fieldset>
+
+                            <fieldset id="last-adult-banquet-screen">
+                                <div class="form-group">
+                                    <h3>Adult</h3>
+                                    <div class="form-group">
+                                        <label for="name_adult">Name</label>
+                                        <input type="text" class="form-control" id="name_adult"
+                                               aria-describedby="nameHelp" placeholder="Enter your name" required>
+                                        <small id="nameHelp" class="form-text text-muted">Please, enter your full name
+                                        </small>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label>Choose your starter:</label>
+                                        </div>
+                                        <div class="col-lg-3"></div>
+                                        <div class="col-lg-6">
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input type="radio" class="form-check-input" name="optionsStarter"
+                                                           id="starter1" value="starter1" checked required>
                                                     Starter 1
                                                 </label>
                                             </div>
@@ -410,7 +477,6 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-3"></div>
-
                                     <div class="form-group">
                                         <div class="form-group">
                                             <label>Choose your main course:</label>
@@ -435,23 +501,43 @@
                                     </div>
                                     <div class="col-lg-2"></div>
                                 </div>
-                                <button type="button" class="btn btn-next">Next</button>
+                                <div class="form-wizard-buttons">
+                                    <button type="button" class="btn btn-previous">Previous</button>
+                                    <button type="submit" class="btn btn-submit">Submit</button>
+                                </div>
                             </fieldset>
 
-                            <fieldset>
+                            <fieldset id="adult-vin-screen">
                                 <div class="form-group">
-                                    <h3>Child</h3>
+                                    <h3>Adult</h3>
                                     <div class="form-group">
-                                        <label for="name_child">Name</label>
-                                        <input type="text" class="form-control" id="name_child"
-                                               aria-describedby="nameHelp" placeholder="Enter your name">
+                                        <label for="name_adult_vin">Name</label>
+                                        <input type="text" class="form-control" id="name-adult"
+                                               aria-describedby="nameHelp" placeholder="Enter your name" required>
                                     </div>
                                 </div>
-                                <button type="button" class="btn btn-next">Next</button>
+                                <div class="form-wizard-buttons">
+                                    <button type="button" class="btn btn-previous">Previous</button>
+                                    <button type="submit" class="btn btn-next">Next</button>
+                                </div>
+                            </fieldset>
+
+                            <fieldset id="last-adult-vin-screen">
+                                <div class="form-group">
+                                    <h3>Adult</h3>
+                                    <div class="form-group">
+                                        <label for="name_adult_vin">Name</label>
+                                        <input type="text" class="form-control" id="name_adult_vin"
+                                               aria-describedby="nameHelp" placeholder="Enter your name" required>
+                                    </div>
+                                </div>
+                                <div class="form-wizard-buttons">
+                                    <button type="button" class="btn btn-previous">Previous</button>
+                                    <button type="submit" class="btn btn-submit">Submit</button>
+                                </div>
                             </fieldset>
 
                         </form>
-                        <!-- Form Wizard -->
                     </div>
                 </div>
             </div>
@@ -568,6 +654,7 @@ function callOrDisplay(number, id, cmd) {
     $(id).tooltip('show');
     console.log(number);
 };
+
 
 
 
