@@ -120,6 +120,19 @@ function addAdult(parent_fieldset) {
     current_nb_adult--;
 }
 
+function fields_validation(parent_fieldset){
+    var next_step = true;
+    parent_fieldset.find('input').each(function() {
+        $(this).removeClass('input-error');
+    	if($(this)[0].required && $(this)[0].value == "") {
+    		$(this).addClass('input-error');
+    	    next_step = false;
+        }
+    });
+    return next_step;
+}
+
+
 jQuery(document).ready(function() {
     /*
         Form
@@ -135,39 +148,31 @@ jQuery(document).ready(function() {
     // next step
     $('.form-wizard .btn-next').on('click', function() {
     	var parent_fieldset = $(this).parents('fieldset');
-    	var next_step = true;
-    	// fields validation
-    	parent_fieldset.find('input').each(function() {
-    		if($(this)[0].required && $(this).val() == "" ) {
-    			$(this).addClass('input-error');
-    			next_step = false;
-    		} else {
-    			$(this).removeClass('input-error');
-    		}
-    	});
-    	// fields validation
-        var next_screen;
-        /* first screen validation */
-    	if (current_screen[0].id == first_screen_id) {
-    	    vin_honneur = parent_fieldset.find(vin_honneur_id)[0].checked;
-    	    banquet = parent_fieldset.find(banquet_id)[0].checked;
-    	    nb_adult = parent_fieldset.find(number_adult_id)[0].value;
-    	    current_nb_adult = nb_adult - 1;
-            if (!banquet) {
-                next_screen = $(form_prefix_id + (is_last_adult() && no_children() ? last_prefix : "") + adult_vin_screen_id);
-            } else {
-                next_screen = $(form_prefix_id + (is_last_adult() && no_children() ? last_prefix : "") + adult_banquet_screen_id);
+        var next_step = fields_validation(parent_fieldset);
+        if (!next_step) {
+            $("form").trigger("reset");
+        } else {
+            var next_screen;
+            /* first screen validation */
+            if (current_screen[0].id == first_screen_id) {
+                vin_honneur = parent_fieldset.find(vin_honneur_id)[0].checked;
+                banquet = parent_fieldset.find(banquet_id)[0].checked;
+                nb_adult = parent_fieldset.find(number_adult_id)[0].value;
+                current_nb_adult = nb_adult - 1;
+                if (!banquet) {
+                    next_screen = $(form_prefix_id + (is_last_adult() && no_children() ? last_prefix : "") + adult_vin_screen_id);
+                } else {
+                    next_screen = $(form_prefix_id + (is_last_adult() && no_children() ? last_prefix : "") + adult_banquet_screen_id);
+                }
+            /* adult screen² validation */
+            } else if (current_screen[0].id.startsWith("adult")) {
+                addAdult(parent_fieldset);
+                if (!banquet) {
+                    next_screen = $(form_prefix_id + ( is_last_adult() ? last_prefix : "") + adult_vin_screen_id);
+                } else {
+                    next_screen = $(form_prefix_id + ( is_last_adult() ? last_prefix : "") + adult_banquet_screen_id);
+                }
             }
-        /* adult screen² validation */
-        } else if (current_screen[0].id.startsWith("adult")) {
-            addAdult(parent_fieldset);
-            if (!banquet) {
-                next_screen = $(form_prefix_id + ( is_last_adult() ? last_prefix : "") + adult_vin_screen_id);
-            } else {
-                next_screen = $(form_prefix_id + ( is_last_adult() ? last_prefix : "") + adult_banquet_screen_id);
-            }
-        }
-    	if(next_step) {
     		parent_fieldset.fadeOut(400, function() {
     			// show next step
 	    		//$(this).next().fadeIn();
@@ -175,9 +180,8 @@ jQuery(document).ready(function() {
 	    		// scroll window to beginning of the form
     			scroll_to_class( $('.form-wizard'), 20 );
 	    	});
+	    	current_screen = next_screen;
     	}
-    	current_screen = next_screen;
-        $("form").trigger("reset");
     });
 
     // previous step
