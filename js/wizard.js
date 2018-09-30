@@ -188,15 +188,15 @@ jQuery(document).ready(function() {
     $('.form-wizard .btn-previous').on('click', function() {
         $("form").trigger("reset");
         var prev_screen;
-        current_nb_adult++;
-        if (current_screen[0].id.startsWith("adult")) {
-            if (current_nb_adult == nb_adult) {
+        if (current_screen[0].id.includes("adult")) {
+            if (current_nb_adult == nb_adult - 1) {
                 prev_screen = $(form_prefix_id + first_screen_id);
             } else if (!banquet) {
                 prev_screen = $(form_prefix_id + adult_vin_screen_id);
             } else {
                 prev_screen = $(form_prefix_id + adult_banquet_screen_id);
             }
+            current_nb_adult++;
         }
     	$(this).parents('fieldset').fadeOut(400, function() {
     		// change icons
