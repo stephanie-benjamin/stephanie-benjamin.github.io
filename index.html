@@ -366,8 +366,8 @@
                                            min="1" max="10"/>
                                 </div>
                                 <div class="form-group">
-                                    <label for="number_bambinos">Number Of Bambinos(between 3 and 8):</label>
-                                    <input type="number" id="number_bambinos" name="number_child"
+                                    <label for="number_bambino">Number Of Bambinos(between 3 and 8):</label>
+                                    <input type="number" id="number_bambino" name="number_bambino"
                                            min="0" max="10" value="0"/>
                                 </div>
                                 <div class="form-group">
@@ -381,13 +381,15 @@
 
                             </fieldset>
 
-                            <fieldset id="adult-banquet-screen">
+                            <!-- ADULT SCREENS -->
+
+                            <fieldset id="adult-screen-banquet">
                                 <div class="form-group">
                                     <h3>Adult 1</h3>
                                     <div class="form-group">
                                         <label for="name-adult">Name</label>
                                         <input type="text" class="form-control" id="name-adult"
-                                               aria-describedby="nameHelp" placeholder="Enter your name">
+                                               aria-describedby="nameHelp" placeholder="Enter your name" required>
                                         <small id="nameHelp-abs" class="form-text text-muted">Please, enter your full name
                                         </small>
                                     </div>
@@ -397,7 +399,7 @@
                                         </div>
                                         <div class="col-lg-3"></div>
                                         <div class="col-lg-6">
-                                            <div class="form-check">
+                                            <div class="form-check" required>
                                                 <label class="form-check-label">
                                                     <input type="radio" class="form-check-input" name="optionsStarter"
                                                            id="starter-adult-banquet-1" value="starter1" checked required>
@@ -407,7 +409,7 @@
                                             <div class="form-check">
                                                 <label class="form-check-label">
                                                     <input type="radio" class="form-check-input" name="optionsStarter"
-                                                           id="starter-adult-banquet-2" value="starter2">
+                                                           id="starter-adult-banquet-2" value="starter2" required>
                                                     Starter 2
                                                 </label>
                                             </div>
@@ -423,14 +425,14 @@
                                             <div class="form-check">
                                                 <label class="form-check-label">
                                                     <input type="radio" class="form-check-input" name="optionsMain"
-                                                           id="main-adult-banquet-1" value="main_course1" checked>
+                                                           id="main-adult-banquet-1" value="main_course1" checked required>
                                                     Main Course 1
                                                 </label>
                                             </div>
                                             <div class="form-check">
                                                 <label class="form-check-label">
                                                     <input type="radio" class="form-check-input" name="optionsMain"
-                                                           id="main-adult-banquet-2" value="main_course2">
+                                                           id="main-adult-banquet-2" value="main_course2" required>
                                                     Main Course 2
                                                 </label>
                                             </div>
@@ -444,13 +446,13 @@
                                 </div>
                             </fieldset>
 
-                            <fieldset id="last-adult-banquet-screen">
+                            <fieldset id="last-adult-screen-banquet">
                                 <div class="form-group">
                                     <h3>Adult 1</h3>
                                     <div class="form-group">
                                         <label for="name-adult">Name</label>
                                         <input type="text" class="form-control" id="name-adult"
-                                               aria-describedby="nameHelp" placeholder="Enter your name">
+                                               aria-describedby="nameHelp" placeholder="Enter your name" required>
                                         <small id="nameHelp-abs" class="form-text text-muted">Please, enter your full name
                                         </small>
                                     </div>
@@ -460,7 +462,7 @@
                                         </div>
                                         <div class="col-lg-3"></div>
                                         <div class="col-lg-6">
-                                            <div class="form-check">
+                                            <div class="form-check" required>
                                                 <label class="form-check-label">
                                                     <input type="radio" class="form-check-input" name="optionsStarter"
                                                            id="starter-adult-banquet-1" value="starter1" checked required>
@@ -470,7 +472,7 @@
                                             <div class="form-check">
                                                 <label class="form-check-label">
                                                     <input type="radio" class="form-check-input" name="optionsStarter"
-                                                           id="starter-adult-banquet-2" value="starter2">
+                                                           id="starter-adult-banquet-2" value="starter2" required>
                                                     Starter 2
                                                 </label>
                                             </div>
@@ -486,14 +488,14 @@
                                             <div class="form-check">
                                                 <label class="form-check-label">
                                                     <input type="radio" class="form-check-input" name="optionsMain"
-                                                           id="main-adult-banquet-1" value="main_course1" checked>
+                                                           id="main-adult-banquet-1" value="main_course1" checked required>
                                                     Main Course 1
                                                 </label>
                                             </div>
                                             <div class="form-check">
                                                 <label class="form-check-label">
                                                     <input type="radio" class="form-check-input" name="optionsMain"
-                                                           id="main-adult-banquet-2" value="main_course2">
+                                                           id="main-adult-banquet-2" value="main_course2" required>
                                                     Main Course 2
                                                 </label>
                                             </div>
@@ -507,7 +509,7 @@
                                 </div>
                             </fieldset>
 
-                            <fieldset id="adult-vin-screen">
+                            <fieldset id="adult-screen-vin">
                                 <div class="form-group">
                                     <h3>Adult 1</h3>
                                     <div class="form-group">
@@ -518,11 +520,11 @@
                                 </div>
                                 <div class="form-wizard-buttons">
                                     <button type="button" class="btn btn-previous">Previous</button>
-                                    <button type="submit" class="btn btn-next">Next</button>
+                                    <button type="button" class="btn btn-next">Next</button>
                                 </div>
                             </fieldset>
 
-                            <fieldset id="last-adult-vin-screen">
+                            <fieldset id="last-adult-screen-vin">
                                 <div class="form-group">
                                     <h3>Adult 1</h3>
                                     <div class="form-group">
@@ -536,6 +538,46 @@
                                     <button type="submit" class="btn btn-submit">Submit</button>
                                 </div>
                             </fieldset>
+
+                            <!-- ADULT SCREENS -->
+
+                            <!-- BAMBINO SCREENS -->
+
+                            <fieldset id="bambino-screen">
+                                <div class="form-group">
+                                    <h3>Bambino 1</h3>
+                                    <div class="form-group">
+                                        <label for="name-adult">Name</label>
+                                        <input type="text" class="form-control" id="name-bambino"
+                                               aria-describedby="nameHelp" placeholder="Enter your name" required>
+                                    </div>
+                                </div>
+                                <div class="form-wizard-buttons">
+                                    <button type="button" class="btn btn-previous">Previous</button>
+                                    <button type="button" class="btn btn-next">Next</button>
+                                </div>
+                            </fieldset>
+
+                            <fieldset id="last-bambino-screen">
+                                <div class="form-group">
+                                    <h3>Bambino 1</h3>
+                                    <div class="form-group">
+                                        <label for="name-adult">Name</label>
+                                        <input type="text" class="form-control" id="name-bambino"
+                                               aria-describedby="nameHelp" placeholder="Enter your name" required>
+                                    </div>
+                                </div>
+                                <div class="form-wizard-buttons">
+                                    <button type="button" class="btn btn-previous">Previous</button>
+                                    <button type="submit" class="btn btn-submit">Submit</button>
+                                </div>
+                            </fieldset>
+
+                            <!-- BAMBINO SCREENS -->
+
+                            <!-- JUNIOR SCREENS -->
+
+                            <!-- JUNIOR SCREENS -->
 
                         </form>
                     </div>
@@ -658,6 +700,7 @@ function callOrDisplay(number, id, cmd) {
 
 <!-- TODO Dans vêtements parler de la température
 <!-- TODO Dans Lille parler de voyager en Europe
+<!-- TODO Manage the HOTEL + Brunch
 
 
 

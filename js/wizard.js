@@ -12,20 +12,23 @@ var form_prefix_id = '.form-wizard fieldset#';
 
 var first_screen_id = "first-screen";
 
-var  adult_banquet_screen_id = "adult-banquet-screen";
-var  adult_vin_screen_id = "adult-vin-screen";
-var  last_adult_banquet_screen_id = "last-adult-banquet-screen";
-var  last_adult_vin_screen_id = "last-adult-vin-screen";
+var  adult_banquet_screen_id = "adult-screen-banquet";
+var  adult_vin_screen_id = "adult-screen-vin";
+var  last_adult_banquet_screen_id = "last-adult-screen-banquet";
+var  last_adult_vin_screen_id = "last-adult-screen-vin";
 
-var  bambino_banquet_screen_id = "adult-banquet-screen";
-var  bambino_vin_screen_id = "adult-vin-screen";
-var  last_bambino_banquet_screen_id = "last-adult-banquet-screen";
-var  last_bambino_vin_screen_id = "last-adult-vin-screen";
+var  bambino_banquet_screen_id = "bambino-screen-banquet";
+var  bambino_vin_screen_id = "bambino-screen-vin";
+var  last_bambino_banquet_screen_id = "last-bambino-screen-banquet";
+var  last_bambino_vin_screen_id = "last-bambino-screen-vin";
 
 var  junior_banquet_screen_id = "adult-banquet-screen";
 var  junior_vin_screen_id = "adult-vin-screen";
 var  last_junior_banquet_screen_id = "last-adult-banquet-screen";
 var  last_junior_vin_screen_id = "last-adult-vin-screen";
+
+var suffix_banquet = '-banquet';
+var suffix_vin = '-vin';
 
 /*
     ids of forms input
@@ -68,15 +71,19 @@ function is_last_adult() {
 }
 
 function no_children() {
-    return no_bambino && no_junior;
+    return no_bambino() && no_junior();
 }
 
 function no_bambino() {
-    return current_nb_bambinos == 0;
+    return nb_bambinos == 0;
+}
+
+function is_last_bambino() {
+    return current_nb_bambinos == nb_bambinos -1;
 }
 
 function no_junior() {
-    return current_nb_junior == 0;
+    return nb_junior == 0;
 }
 
 /*
@@ -158,32 +165,44 @@ jQuery(document).ready(function() {
     $('.form-wizard .btn-next').on('click', function() {
     	var parent_fieldset = $(this).parents('fieldset');
         var next_step = fields_validation(parent_fieldset);
+        if (!next_step) {
+            $("form").trigger("reset");
+            return;
+        }
         var next_screen;
         /* first screen validation */
         if (current_screen[0].id == first_screen_id) {
             vin_honneur = parent_fieldset.find(vin_honneur_id)[0].checked;
             banquet = parent_fieldset.find(banquet_id)[0].checked;
             nb_adult = parent_fieldset.find(number_adult_id)[0].value;
+            nb_bambinos = parent_fieldset.find(number_bambino_id)[0].value;
             current_nb_adult = 0;
+            current_nb_bambinos = 0;
             if (!banquet && !vin_honneur) {
                 alert("You don't need to fill the form if you don't come! Please check at least one event to attend (vin d'honneur or Diner)");
                 $("form").trigger("reset");
                 next_step = false;
-            } else if (!banquet) {
-                next_screen = $(form_prefix_id + (is_last_adult() && no_children() ? last_prefix : "") + adult_vin_screen_id);
             } else {
-                next_screen = $(form_prefix_id + (is_last_adult() && no_children() ? last_prefix : "") + adult_banquet_screen_id);
+                var next_screen_id = form_prefix_id + (is_last_adult() && no_children() ? last_prefix : "") + 'adult-screen' + (banquet ? suffix_banquet : suffix_vin);
+                console.log("next_screen_id " + next_screen_id);
+                next_screen = $(next_screen_id);
             }
         /* adult screen validation */
         } else if (current_screen[0].id.startsWith("adult")) {
             addAdult(parent_fieldset);
-            if (!banquet) {
-                next_screen = $(form_prefix_id + ( is_last_adult() ? last_prefix : "") + adult_vin_screen_id);
-                next_screen.find('h3')[0].innerHTML = 'Adult ' + (current_nb_adult + 1);
+            // current_nb_adult == nb_adult, we registered every adults, go to the children
+            if (current_nb_adult == nb_adult) {
+                console.log("GO TO CHILDREN!!!");
+                next_screen = $(form_prefix_id + ( is_last_bambino() ? last_prefix : "") + adult_vin_screen_id);
             } else {
-                next_screen = $(form_prefix_id + ( is_last_adult() ? last_prefix : "") + adult_banquet_screen_id);
+                var next_screen_id = form_prefix_id + (is_last_adult() && no_children() ? last_prefix : "") + 'adult-screen' + (banquet ? suffix_banquet : suffix_vin);
+                console.log("next_screen_id " + next_screen_id);
+                next_screen = $(next_screen_id);
                 next_screen.find('h3')[0].innerHTML = 'Adult ' + (current_nb_adult + 1);
             }
+        /* bambino screen validation */
+    	} else if (current_screen[0].id.startsWith("bambino")) {
+
     	}
     	if (next_step) {
             parent_fieldset.fadeOut(400, function() {
