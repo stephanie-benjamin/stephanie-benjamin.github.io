@@ -105,7 +105,8 @@
                 </p>
                 <p>
                     Address: <a
-                        href="https://www.google.se/maps?q=domaines+des+cigognes+ennevelin&um=1&ie=UTF-8&sa=X&ved=0ahUKEwi7ud2L9OLdAhVnsIsKHb5iBpMQ_AUICigB">Departementale 917 / Pont Thibault, 59710 Ennevelin, France
+                        href="https://www.google.se/maps?q=domaines+des+cigognes+ennevelin&um=1&ie=UTF-8&sa=X&ved=0ahUKEwi7ud2L9OLdAhVnsIsKHb5iBpMQ_AUICigB">Departementale
+                    917 / Pont Thibault, 59710 Ennevelin, France
                 </a>.
                 </p>
             </div>
@@ -345,21 +346,19 @@
     <link rel="stylesheet" href="css/wizard.css">
     <section class="form-box">
         <div class="container">
-            <div class="row">
+            <div class="row" id="form">
                 <div class="col-lg-2 text-center"></div>
                 <div class="col-lg-8">
                     <div class="form-wizard">
                         <form role="form" action="" method="post">
                             <h3>Confirm attendance</h3>
-
                             <fieldset id="first-screen">
                                 <div class="form-group">
-                                    <div class="col-lg-3"></div>
-                                    <div class="col-lg-6">
-                                        <label for="cannot_attend">Cannot attend</label>
+                                    <div>
                                         <input type="checkbox" id="cannot_attend" name="cannot_attend"/>
+                                        <label for="cannot_attend">Cannot attend
+                                        </label>
                                     </div>
-                                    <div class="col-lg-3"></div>
                                 </div>
                                 <div class="form-group">
                                     <label>Attend to:</label>
@@ -367,26 +366,24 @@
                                 <div class="form-group">
                                     <div class="col-lg-3"></div>
                                     <div class="col-lg-6">
-                                        <label for="vin_honneur">Vin d'honneur</label>
                                         <input type="checkbox" id="vin_honneur" name="vin_honneur"/>
+                                        <label for="vin_honneur">Vin d'honneur</label>
                                     </div>
                                     <div class="col-lg-3"></div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-lg-3"></div>
                                     <div class="col-lg-6">
-                                        <label for="banquet">Banquet</label>
                                         <input type="checkbox" id="banquet" name="banquet"/>
+                                        <label for="banquet">Banquet</label>
                                     </div>
                                     <div class="col-lg-3"></div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="col-lg-3"></div>
-                                    <div class="col-lg-6">
-                                        <label for="stay_night">Want to stay for the night</label>
+                                    <div>
                                         <input type="checkbox" id="stay_night" name="stay_night"/>
+                                        <label for="stay_night">Want to stay for the night</label>
                                     </div>
-                                    <div class="col-lg-3"></div>
                                 </div>
                                 <div class="form-group">
                                     <label for="number_adult">Number Of Adult:</label>
@@ -418,7 +415,8 @@
                                         <label for="name-adult">Name</label>
                                         <input type="text" class="form-control" id="name-adult"
                                                aria-describedby="nameHelp" placeholder="Enter your name" required>
-                                        <small id="nameHelp-abs" class="form-text text-muted">Please, enter your full name
+                                        <small id="nameHelp-abs" class="form-text text-muted">Please, enter your full
+                                            name
                                         </small>
                                     </div>
                                     <div class="form-group">
@@ -430,7 +428,8 @@
                                             <div class="form-check" required>
                                                 <label class="form-check-label">
                                                     <input type="radio" class="form-check-input" name="optionsStarter"
-                                                           id="starter-adult-banquet-1" value="starter1" checked required>
+                                                           id="starter-adult-banquet-1" value="starter1" checked
+                                                           required>
                                                     Starter 1
                                                 </label>
                                             </div>
@@ -453,7 +452,8 @@
                                             <div class="form-check">
                                                 <label class="form-check-label">
                                                     <input type="radio" class="form-check-input" name="optionsMain"
-                                                           id="main-adult-banquet-1" value="main_course1" checked required>
+                                                           id="main-adult-banquet-1" value="main_course1" checked
+                                                           required>
                                                     Main Course 1
                                                 </label>
                                             </div>
@@ -481,7 +481,8 @@
                                         <label for="name-adult">Name</label>
                                         <input type="text" class="form-control" id="name-adult"
                                                aria-describedby="nameHelp" placeholder="Enter your name" required>
-                                        <small id="nameHelp-abs" class="form-text text-muted">Please, enter your full name
+                                        <small id="nameHelp-abs" class="form-text text-muted">Please, enter your full
+                                            name
                                         </small>
                                     </div>
                                     <div class="form-group">
@@ -493,7 +494,8 @@
                                             <div class="form-check" required>
                                                 <label class="form-check-label">
                                                     <input type="radio" class="form-check-input" name="optionsStarter"
-                                                           id="starter-adult-banquet-1" value="starter1" checked required>
+                                                           id="starter-adult-banquet-1" value="starter1" checked
+                                                           required>
                                                     Starter 1
                                                 </label>
                                             </div>
@@ -516,7 +518,8 @@
                                             <div class="form-check">
                                                 <label class="form-check-label">
                                                     <input type="radio" class="form-check-input" name="optionsMain"
-                                                           id="main-adult-banquet-1" value="main_course1" checked required>
+                                                           id="main-adult-banquet-1" value="main_course1" checked
+                                                           required>
                                                     Main Course 1
                                                 </label>
                                             </div>
@@ -814,6 +817,8 @@ function callOrDisplay(number, id, cmd) {
     $(id).tooltip('show');
     console.log(number);
 };
+
+
 </script>
 
 <!-- TODO Dans vêtements parler de la température

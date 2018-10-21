@@ -384,3 +384,7 @@ background: #bbb;
   position: relative;
   z-index: 2;
 }
+
+.checkbox-error + label {
+    color: red;
+}

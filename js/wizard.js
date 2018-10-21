@@ -96,20 +96,29 @@ var adults = [];
 var juniors = [];
 var bambinos = [];
 
-function Adult(name, attend_to_vin_honneur, attend_to_diner, starter_1, starter_2, main_1, main_2) {
+function Adult(name, attend_to_vin_honneur, attend_to_diner, stay_for_the_night, starter_1, starter_2, main_1, main_2) {
     this.name = name;
     this.attend_to_vin_honneur = attend_to_vin_honneur;
     this.attend_to_diner = attend_to_diner;
+    this.stay_for_the_night = stay_for_the_night;
     this.starter_1 = starter_1;
     this.starter_2 = starter_2;
     this.main_1 = main_1;
     this.main_2 = main_2;
 }
 
-function Child(name, attend_to_vin_honneur, attend_to_diner) {
+function Bambino(name, attend_to_vin_honneur, attend_to_diner, stay_for_the_night) {
     this.name = name;
     this.attend_to_vin_honneur = attend_to_vin_honneur;
     this.attend_to_diner = attend_to_diner;
+    this.stay_for_the_night = stay_for_the_night;
+ }
+
+function Junior(name, attend_to_vin_honneur, attend_to_diner, stay_for_the_night) {
+    this.name = name;
+    this.attend_to_vin_honneur = attend_to_vin_honneur;
+    this.attend_to_diner = attend_to_diner;
+    this.stay_for_the_night = stay_for_the_night;
 }
 
 function addAdult(parent_fieldset) {
@@ -125,15 +134,15 @@ function addAdult(parent_fieldset) {
         var main_1 = banquet;
         var main_2 = banquet;
     }
-    var adult = new Adult(current_name, vin_honneur, banquet, starter_1, starter_2, main_1, main_2)
+    var adult = new Adult(current_name, vin_honneur, banquet, stay_night, starter_1, starter_2, main_1, main_2)
     adults.push(adult);
-    console.log(adult.name + ", " + adult.attend_to_vin_honneur + ", " + adult.attend_to_diner + ", " + adult.starter_1 + ", " + adult.starter_2 + ", " + adult.main_1+ ", " + adult.main_2);
+    console.log(adult.name + ", " + adult.attend_to_vin_honneur + ", " + adult.attend_to_diner + ", " + adult.stay_for_the_night  + ", " + adult.starter_1 + ", " + adult.starter_2 + ", " + adult.main_1+ ", " + adult.main_2);
     current_nb_adult++;
 }
 
 function addBambino(parent_fieldset) {
     var current_name = parent_fieldset.find(input_pattern + name_bambino_id)[0].value;
-    var bambino = new Child(current_name, vin_honneur, banquet)
+    var bambino = new Bambino(current_name, vin_honneur, banquet, stay_night)
     bambinos.push(bambino);
     console.log(bambino.name + ", " + bambino.attend_to_vin_honneur + ", " + bambino.attend_to_diner);
     current_nb_bambino++;
@@ -141,7 +150,7 @@ function addBambino(parent_fieldset) {
 
 function addJunior(parent_fieldset) {
     var current_name = parent_fieldset.find(input_pattern + name_junior_id)[0].value;
-    var junior = new Child(current_name, vin_honneur, banquet)
+    var junior = new Junior(current_name, vin_honneur, banquet, stay_night)
     juniors.push(junior);
     console.log(junior.name + ", " + junior.attend_to_vin_honneur + ", " + junior.attend_to_diner);
     current_nb_junior++;
@@ -186,6 +195,20 @@ function get_next_screen_id(base_id, is_last) {
     return next_screen_id;
 }
 
+function set_errors_on_checkboxes(parent_fieldset){
+    parent_fieldset.find('input').each(function() {
+        if ($(this)[0].type == 'checkbox') {
+            $(this).addClass('checkbox-error');
+        }
+    });
+}
+
+$("#form").change(function() {
+   $(this).find('.checkbox-error').each(function() {
+       $(this).removeClass('checkbox-error');
+   });
+});
+
 jQuery(document).ready(function() {
     /*
         Form
@@ -203,7 +226,7 @@ jQuery(document).ready(function() {
     	var parent_fieldset = $(this).parents('fieldset');
         var next_step = fields_validation(parent_fieldset);
         if (!next_step) {
-            $("form").trigger("reset");
+            //$("form").trigger("reset");
             return;
         }
         var next_screen;
@@ -220,6 +243,11 @@ jQuery(document).ready(function() {
             current_nb_adult = 0;
             current_nb_bambino = 0;
             current_nb_junior = 0;
+            if (cannot_attend && (banquet || vin_honneur || stay_night)) {
+                set_errors_on_checkboxes(parent_fieldset);
+                return;
+            }
+
             if (!banquet && !vin_honneur) {
                 // TODO implements errors
                 alert("You don't need to fill the form if you don't come! Please check at least one event to attend (vin d'honneur or Diner)");
@@ -337,8 +365,6 @@ jQuery(document).ready(function() {
         }
     });
 });
-
-// TODO verify input field in the first screen
 
 // image uploader scripts
 
