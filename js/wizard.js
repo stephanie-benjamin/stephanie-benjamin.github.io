@@ -247,20 +247,20 @@ jQuery(document).ready(function() {
                 set_errors_on_checkboxes(parent_fieldset);
                 return;
             }
-
-            if (!banquet && !vin_honneur) {
-                // TODO implements errors
-                alert("You don't need to fill the form if you don't come! Please check at least one event to attend (vin d'honneur or Diner)");
-                $("form").trigger("reset");
-                next_step = false;
-            } else {
-                selected_suffix = banquet ? suffix_banquet : suffix_vin;
-                console.log(is_last_adult() && no_children());
-                var next_screen_id = form_prefix_id + (is_last_adult() && no_children() ? last_prefix : "") +  adult_screen_id + selected_suffix;
-                console.log("next_screen_id " + next_screen_id);
-                next_screen = $(next_screen_id);
-                next_screen.find('h3')[0].innerHTML = 'Adult ' + (current_nb_adult + 1);
+            if (!cannot_attend && !banquet && !vin_honneur) {
+                set_errors_on_checkboxes(parent_fieldset);
+                return;
             }
+            if (!banquet && stay_night) {
+                set_errors_on_checkboxes(parent_fieldset);
+                return;
+            }
+            selected_suffix = banquet ? suffix_banquet : suffix_vin;
+            console.log(is_last_adult() && no_children());
+            var next_screen_id = form_prefix_id + (is_last_adult() && no_children() ? last_prefix : "") +  adult_screen_id + selected_suffix;
+            console.log("next_screen_id " + next_screen_id);
+            next_screen = $(next_screen_id);
+            next_screen.find('h3')[0].innerHTML = 'Adult ' + (current_nb_adult + 1);
         /* adult screen validation */
         } else if (current_screen[0].id.includes("adult")) {
             addAdult(parent_fieldset);
