@@ -16,6 +16,8 @@ var  adult_screen_id = "adult-screen";
 var  bambino_screen_id =  "bambino-screen";
 var  junior_screen_id =  "junior-screen";
 
+var final_screen_id = 'final-screen';
+
 var suffix_banquet = '-banquet';
 var suffix_vin = '-vin';
 
@@ -363,8 +365,67 @@ jQuery(document).ready(function() {
                 console.log(adult.name + ", " + adult.attend_to_vin_honneur + ", " + adult.attend_to_diner + ", " + adult.starter_1 + ", " + adult.starter_2 + ", " + adult.main_1+ ", " + adult.main_2);
             }
         }
+        var next_screen = $(form_prefix_id + final_screen_id);
+        parent_fieldset.fadeOut(400, function() {
+            next_screen.fadeIn();
+            scroll_to_class( $('.form-wizard'), 20 );
+        });
+        current_screen = next_screen;
+        $(this).parents('form').find('h3')[0].innerHTML = "Summary";
+        display_summary(current_screen[0]);
     });
 });
+
+function display_summary(screen) {
+    var newDiv = document.createElement('div');
+    // title of adults
+    var newTitle = document.createElement('h4');
+    newTitle.innerHTML = "Adults";
+    newDiv.appendChild(newTitle);
+    var list_of_names = get_all_names();
+    var newP = document.createElement('p');
+    newP.innerHTML = build_sentence_to_attend(list_of_names);
+    newDiv.appendChild(newP);
+    screen.appendChild(newDiv);
+}
+
+function build_sentence_to_attend(list_of_names) {
+    var sentence = "";
+    for (var i = 0 ; i < list_of_names.length - 2 ; i++) {
+        sentence += list_of_names[i] + ', ';
+    }
+    sentence += list_of_names[length - 2] + ' and ' + list_of_names[length - 1] + ' will attend to ';
+    if (vin_honneur) {
+        sentence += ' to the vin d\'honneur';
+        if (banquet) {
+            sentence += ' and to the banquet.';
+        } else {
+            sentence += '.';
+        }
+    } else {
+        sentence += ' to the banquet.';
+    }
+    return sentence;
+}
+
+function get_all_names() {
+    var list_of_names = [];
+    iterate_and_append(adults, list_of_names);
+    iterate_and_append(bambinos, list_of_names);
+    iterate_and_append(juniors, list_of_names);
+    return list_of_names
+}
+
+function iterate_and_append(array, acc) {
+    console.log(array);
+    for(var i = 0 ; i < array.length ; i++) {
+        var element = array[i];
+        console.log(element);
+        console.log(element.name);
+        acc.push(element.name);
+        console.log(acc);
+    }
+}
 
 // image uploader scripts
 
