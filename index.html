@@ -118,8 +118,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Please confirm your attendance </h2>
-                <h3 class="section-heading"><i>before January 15, 2019 by contacting:</i></h3>
+                <h3 class="section-heading">For organizational matter, please confirm you filled out the form</h3>
+                <h4 class="section-heading"><i>before January 15, 2019 by contacting:</i></h4>
             </div>
         </div>
         <div class="col-xs-12" style="height:50px;"></div>
@@ -143,7 +143,7 @@
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#">
+                            <a href="https://m.me/teff.ch1">
                                 <i class="fa fa-facebook"></i>
                             </a>
                         </li>
@@ -176,7 +176,7 @@
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#">
+                            <a href="https://m.me/benjamin.danglot">
                                 <i class="fa fa-facebook"></i>
                             </a>
                         </li>
@@ -287,7 +287,7 @@
                     <h4>Wedding Dress Code</h4>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
+            <div class="col-md-2 col-sm-6 portfolio-item">
             </div>
             <div class="col-md-4 col-sm-6 portfolio-item">
                 <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
@@ -303,7 +303,19 @@
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 portfolio-item">
-
+                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="img/info/Contact_scaled.jpg" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>Gifts</h4>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-6 portfolio-item">
             </div>
         </div>
     </div>
@@ -342,6 +354,14 @@
 
                             <fieldset id="first-screen">
                                 <div class="form-group">
+                                    <div class="col-lg-3"></div>
+                                    <div class="col-lg-6">
+                                        <label for="cannot_attend">Cannot attend</label>
+                                        <input type="checkbox" id="cannot_attend" name="cannot_attend"/>
+                                    </div>
+                                    <div class="col-lg-3"></div>
+                                </div>
+                                <div class="form-group">
                                     <label>Attend to:</label>
                                 </div>
                                 <div class="form-group">
@@ -361,19 +381,27 @@
                                     <div class="col-lg-3"></div>
                                 </div>
                                 <div class="form-group">
+                                    <div class="col-lg-3"></div>
+                                    <div class="col-lg-6">
+                                        <label for="stay_night">Want to stay for the night</label>
+                                        <input type="checkbox" id="stay_night" name="stay_night"/>
+                                    </div>
+                                    <div class="col-lg-3"></div>
+                                </div>
+                                <div class="form-group">
                                     <label for="number_adult">Number Of Adult:</label>
                                     <input type="number" id="number_adult" name="number_adult"
-                                           min="1" max="10"/>
+                                           min="1" max="10" required/>
                                 </div>
                                 <div class="form-group">
                                     <label for="number_bambino">Number Of Bambinos(between 3 and 8):</label>
                                     <input type="number" id="number_bambino" name="number_bambino"
-                                           min="0" max="10" value="0"/>
+                                           min="0" max="10" value="0" required/>
                                 </div>
                                 <div class="form-group">
                                     <label for="number_junior">Number Of Junior(between 8 and 14):</label>
                                     <input type="number" id="number_junior" name="number_junior"
-                                           min="0" max="10" value="0"/>
+                                           min="0" max="10" value="0" required/>
                                 </div>
                                 <div class="form-wizard-buttons">
                                     <button type="button" class="btn btn-next">Next</button>
@@ -543,11 +571,11 @@
 
                             <!-- BAMBINO SCREENS -->
 
-                            <fieldset id="bambino-screen">
+                            <fieldset id="bambino-screen-banquet">
                                 <div class="form-group">
                                     <h3>Bambino 1</h3>
                                     <div class="form-group">
-                                        <label for="name-adult">Name</label>
+                                        <label for="name-bambino">Name</label>
                                         <input type="text" class="form-control" id="name-bambino"
                                                aria-describedby="nameHelp" placeholder="Enter your name" required>
                                     </div>
@@ -558,7 +586,37 @@
                                 </div>
                             </fieldset>
 
-                            <fieldset id="last-bambino-screen">
+                            <fieldset id="bambino-screen-vin">
+                                <div class="form-group">
+                                    <h3>Bambino 1</h3>
+                                    <div class="form-group">
+                                        <label for="name-bambino">Name</label>
+                                        <input type="text" class="form-control" id="name-bambino"
+                                               aria-describedby="nameHelp" placeholder="Enter your name" required>
+                                    </div>
+                                </div>
+                                <div class="form-wizard-buttons">
+                                    <button type="button" class="btn btn-previous">Previous</button>
+                                    <button type="button" class="btn btn-next">Next</button>
+                                </div>
+                            </fieldset>
+
+                            <fieldset id="last-bambino-screen-banquet">
+                                <div class="form-group">
+                                    <h3>Bambino 1</h3>
+                                    <div class="form-group">
+                                        <label for="name-bambino">Name</label>
+                                        <input type="text" class="form-control" id="name-bambino"
+                                               aria-describedby="nameHelp" placeholder="Enter your name" required>
+                                    </div>
+                                </div>
+                                <div class="form-wizard-buttons">
+                                    <button type="button" class="btn btn-previous">Previous</button>
+                                    <button type="submit" class="btn btn-submit">Submit</button>
+                                </div>
+                            </fieldset>
+
+                            <fieldset id="last-bambino-screen-vin">
                                 <div class="form-group">
                                     <h3>Bambino 1</h3>
                                     <div class="form-group">
@@ -576,6 +634,66 @@
                             <!-- BAMBINO SCREENS -->
 
                             <!-- JUNIOR SCREENS -->
+
+                            <fieldset id="junior-screen-banquet">
+                                <div class="form-group">
+                                    <h3>Junior 1</h3>
+                                    <div class="form-group">
+                                        <label for="name-junior">Name</label>
+                                        <input type="text" class="form-control" id="name-junior"
+                                               aria-describedby="nameHelp" placeholder="Enter your name" required>
+                                    </div>
+                                </div>
+                                <div class="form-wizard-buttons">
+                                    <button type="button" class="btn btn-previous">Previous</button>
+                                    <button type="button" class="btn btn-next">Next</button>
+                                </div>
+                            </fieldset>
+
+                            <fieldset id="junior-screen-vin">
+                                <div class="form-group">
+                                    <h3>Junior 1</h3>
+                                    <div class="form-group">
+                                        <label for="name-junior">Name</label>
+                                        <input type="text" class="form-control" id="name-junior"
+                                               aria-describedby="nameHelp" placeholder="Enter your name" required>
+                                    </div>
+                                </div>
+                                <div class="form-wizard-buttons">
+                                    <button type="button" class="btn btn-previous">Previous</button>
+                                    <button type="button" class="btn btn-next">Next</button>
+                                </div>
+                            </fieldset>
+
+                            <fieldset id="last-junior-screen-banquet">
+                                <div class="form-group">
+                                    <h3>Junior 1</h3>
+                                    <div class="form-group">
+                                        <label for="name-junior">Name</label>
+                                        <input type="text" class="form-control" id="name-junior"
+                                               aria-describedby="nameHelp" placeholder="Enter your name" required>
+                                    </div>
+                                </div>
+                                <div class="form-wizard-buttons">
+                                    <button type="button" class="btn btn-previous">Previous</button>
+                                    <button type="button" class="btn btn-submit">Submit</button>
+                                </div>
+                            </fieldset>
+
+                            <fieldset id="last-junior-screen-vin">
+                                <div class="form-group">
+                                    <h3>Junior 1</h3>
+                                    <div class="form-group">
+                                        <label for="name-junior">Name</label>
+                                        <input type="text" class="form-control" id="name-junior"
+                                               aria-describedby="nameHelp" placeholder="Enter your name" required>
+                                    </div>
+                                </div>
+                                <div class="form-wizard-buttons">
+                                    <button type="button" class="btn btn-previous">Previous</button>
+                                    <button type="button" class="btn btn-submit">Submit</button>
+                                </div>
+                            </fieldset>
 
                             <!-- JUNIOR SCREENS -->
 
@@ -701,6 +819,7 @@ function callOrDisplay(number, id, cmd) {
 <!-- TODO Dans vêtements parler de la température
 <!-- TODO Dans Lille parler de voyager en Europe
 <!-- TODO Manage the HOTEL + Brunch
+<!-- TODO handle input errors when user do not put nb adult
 
 
 
