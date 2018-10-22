@@ -294,7 +294,7 @@ background: #bbb;
 
 .form-wizard-buttons { text-align: right; }
 
-.form-wizard .input-error { border-color: #fed136;}
+.form-wizard .input-error { border-color: #ea2803;}
 
 /** image uploader **/
 .image-upload a[data-action] {
