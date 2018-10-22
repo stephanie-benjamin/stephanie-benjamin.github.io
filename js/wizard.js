@@ -25,6 +25,9 @@ var selected_suffix;
 
 var last_prefix = "last-";
 
+var main_course_1 = "Agneau";
+var main_course_2 = "Cabillaud";
+
 /*
     ids of forms input
 */
@@ -154,13 +157,27 @@ function addJunior(parent_fieldset) {
 
 function fields_validation(parent_fieldset){
     var next_step = true;
+    var radio_is_ok = false;
+    var has_radio = false;
     parent_fieldset.find('input').each(function() {
         $(this).removeClass('input-error');
     	if($(this)[0].required && $(this)[0].value == "") {
     		$(this).addClass('input-error');
     	    next_step = false;
         }
+        if ($(this)[0].type == "radio") {
+            has_radio = true;
+            radio_is_ok |= $(this)[0].checked;
+        }
     });
+    if (has_radio && !radio_is_ok) {
+        parent_fieldset.find('input').each(function() {
+            if ($(this)[0].type == "radio") {
+                $(this).addClass('checkbox-error');
+            }
+        });
+        return false;
+    }
     return next_step;
 }
 
@@ -350,17 +367,12 @@ jQuery(document).ready(function() {
     // submit
     $('.form-wizard .btn-submit').on('click', function(e) {
         var parent_fieldset = $(this).parents('fieldset');
-        if(fields_validation(parent_fieldset)) {
-            $(this).find('.required').each(function() {
-                if( $(this).val() == "" ) {
-                    e.preventDefault();
-                    $(this).addClass('input-error');
-                } else {
-                    $(this).removeClass('input-error');
-                }
-            });
-            get_next_screen(parent_fieldset);
+        var next_step = fields_validation(parent_fieldset);
+        if (!next_step) {
+            //$("form").trigger("reset");
+            return;
         }
+        get_next_screen(parent_fieldset); // this will get info for the last screen
         var next_screen = $(form_prefix_id + final_screen_id);
         parent_fieldset.fadeOut(400, function() {
             next_screen.fadeIn();
@@ -378,21 +390,48 @@ function display_summary(screen) {
     var newP = document.createElement('p');
     newP.innerHTML = build_sentence_to_attend(list_of_names);
     newDiv.appendChild(newP);
+    newDiv.appendChild(build_chosen_main_course());
     screen.appendChild(newDiv);
 }
 
-function build_sentence_to_attend(list_of_names) {
-    var sentence = "";
-    if (list_of_names.length > 2) {
-        for (var i = 0 ; i < list_of_names.length - 2 ; i++) {
-            sentence += list_of_names[i] + ', ';
+function build_chosen_main_course() {
+    var adult_main_1 = [];
+    var adult_main_2 = [];
+    for (var i = 0 ; i < adults.length ; i++) {
+        var adult = adults[i];
+        if (adult.main_1) {
+            adult_main_1.push(adult.name);
+        } else {
+            adult_main_2.push(adult.name);
         }
     }
-    if (list_of_names.length > 1) {
-        sentence += list_of_names[list_of_names.length - 2] + ' and ' + list_of_names[list_of_names.length - 1] + ' will attend to ';
-    } else {
-        sentence += list_of_names[list_of_names.length - 1] + ' will attend to ';
+    var newDiv = document.createElement('div');
+    var newP = document.createElement('p');
+    newP.innerHTML = build_sentence_from_given_array_with_given_suffix(adult_main_1, ' will have ' + main_course_1);
+    newDiv.appendChild(newP);
+    newP = document.createElement('p');
+    newP.innerHTML = build_sentence_from_given_array_with_given_suffix(adult_main_2, ' will have ' + main_course_2);
+    newDiv.appendChild(newP);
+    return newDiv;
+}
+
+function build_sentence_from_given_array_with_given_suffix(array, suffix) {
+    var sentence = "";
+    if (array.length > 2) {
+        for (var i = 0 ; i < array.length - 2 ; i++) {
+            sentence += array[i] + ', ';
+        }
     }
+    if (array.length > 1) {
+        sentence += array[array.length - 2] + ' and ' + array[array.length - 1] + suffix;
+    } else {
+        sentence += array[array.length - 1] + suffix;
+    }
+    return sentence;
+}
+
+function build_sentence_to_attend(list_of_names) {
+    var sentence = build_sentence_from_given_array_with_given_suffix(list_of_names, ' will attend to ');
     if (vin_honneur) {
         sentence += ' the vin d\'honneur';
         if (banquet) {
