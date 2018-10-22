@@ -40,15 +40,15 @@ var stay_night_id = input_pattern + 'stay_night';
 
 /* adult screen */
 var name_adult_id = "name-adult";
-var start_checkbox_1_id = "starter-adult-banquet-1";
-var start_checkbox_2_id = "starter-adult-banquet-2";
 var main_checkbox_1_id = "main-adult-banquet-1";
 var main_checkbox_2_id = "main-adult-banquet-2";
-var starter_adult_banquet = "starter-adult-banquet";
 var main_adult_banquet = "main-adult-banquet";
 
 /* bambino screen */
 var name_bambino_id = "name-bambino";
+
+/* junir screen */
+var name_junior_id = "name-junior";
 
 /*
     Values to gather and send to the gForm
@@ -98,13 +98,11 @@ var adults = [];
 var juniors = [];
 var bambinos = [];
 
-function Adult(name, attend_to_vin_honneur, attend_to_diner, stay_for_the_night, starter_1, starter_2, main_1, main_2) {
+function Adult(name, attend_to_vin_honneur, attend_to_diner, stay_for_the_night, main_1, main_2) {
     this.name = name;
     this.attend_to_vin_honneur = attend_to_vin_honneur;
     this.attend_to_diner = attend_to_diner;
     this.stay_for_the_night = stay_for_the_night;
-    this.starter_1 = starter_1;
-    this.starter_2 = starter_2;
     this.main_1 = main_1;
     this.main_2 = main_2;
 }
@@ -126,17 +124,13 @@ function Junior(name, attend_to_vin_honneur, attend_to_diner, stay_for_the_night
 function addAdult(parent_fieldset) {
     var current_name = parent_fieldset.find(input_pattern + name_adult_id)[0].value;
     if (banquet) {
-        var starter_1 = parent_fieldset.find(input_pattern + start_checkbox_1_id)[0].checked;
-        var starter_2 = parent_fieldset.find(input_pattern + start_checkbox_2_id)[0].checked;
         var main_1 = parent_fieldset.find(input_pattern + main_checkbox_1_id)[0].checked;
         var main_2 = parent_fieldset.find(input_pattern + main_checkbox_2_id)[0].checked;
     } else {
-        var starter_1 = banquet;
-        var starter_2 = banquet;
         var main_1 = banquet;
         var main_2 = banquet;
     }
-    var adult = new Adult(current_name, vin_honneur, banquet, stay_night, starter_1, starter_2, main_1, main_2)
+    var adult = new Adult(current_name, vin_honneur, banquet, stay_night, main_1, main_2)
     adults.push(adult);
     console.log(adult.name + ", " + adult.attend_to_vin_honneur + ", " + adult.attend_to_diner + ", " + adult.stay_for_the_night  + ", " + adult.starter_1 + ", " + adult.starter_2 + ", " + adult.main_1+ ", " + adult.main_2);
     current_nb_adult++;
@@ -211,6 +205,39 @@ $("#form").change(function() {
    });
 });
 
+function get_next_screen(parent_fieldset) {
+    var next_screen;
+    if (current_screen[0].id.includes("adult")) {
+        addAdult(parent_fieldset);
+        // current_nb_adult == nb_adult, we registered every adults, go to the children
+        if (current_nb_adult == nb_adult) {
+            if (no_bambino()) { // there is no bambino, jump to junior
+                next_screen = $(get_next_screen_id(junior_screen_id, is_last_junior()));
+            } else {
+                next_screen = $(get_next_screen_id(bambino_screen_id, is_last_bambino() && no_junior()));
+            }
+        } else {
+            next_screen = $(get_next_screen_id(adult_screen_id, is_last_adult() && no_children()));
+            next_screen.find('h3')[0].innerHTML = 'Adult ' + (current_nb_adult + 1);
+        }
+    /* bambino screen validation */
+    } else if (current_screen[0].id.includes("bambino")) {
+        addBambino(parent_fieldset);
+        if (current_nb_bambino == nb_bambino) {
+            next_screen = $(get_next_screen_id(junior_screen_id, is_last_junior()));
+        } else {
+            next_screen = $(get_next_screen_id(bambino_screen_id, is_last_bambino() && no_junior()));
+            next_screen.find('h3')[0].innerHTML = 'Bambino ' + (current_nb_bambino + 1);
+        }
+    /* junior screen validation */
+    } else if (current_screen[0].id.includes("junior")) {
+        addJunior(parent_fieldset);
+        next_screen = $(get_next_screen_id(junior_screen_id, is_last_junior()));
+        next_screen.find('h3')[0].innerHTML = 'Junior ' + (current_nb_junior + 1);
+    }
+    return next_screen;
+}
+
 jQuery(document).ready(function() {
     /*
         Form
@@ -264,34 +291,9 @@ jQuery(document).ready(function() {
             next_screen = $(next_screen_id);
             next_screen.find('h3')[0].innerHTML = 'Adult ' + (current_nb_adult + 1);
         /* adult screen validation */
-        } else if (current_screen[0].id.includes("adult")) {
-            addAdult(parent_fieldset);
-            // current_nb_adult == nb_adult, we registered every adults, go to the children
-            if (current_nb_adult == nb_adult) {
-                if (no_bambino()) { // there is no bambino, jump to junior
-                    next_screen = $(get_next_screen_id(junior_screen_id, is_last_junior()));
-                } else {
-                    next_screen = $(get_next_screen_id(bambino_screen_id, is_last_bambino() && no_junior()));
-                }
-            } else {
-                next_screen = $(get_next_screen_id(adult_screen_id, is_last_adult() && no_children()));
-                next_screen.find('h3')[0].innerHTML = 'Adult ' + (current_nb_adult + 1);
-            }
-        /* bambino screen validation */
-    	} else if (current_screen[0].id.includes("bambino")) {
-            addBambino(parent_fieldset);
-            if (current_nb_bambino == nb_bambino) {
-                next_screen = $(get_next_screen_id(junior_screen_id, is_last_junior()));
-            } else {
-                next_screen = $(get_next_screen_id(bambino_screen_id, is_last_bambino() && no_junior()));
-                next_screen.find('h3')[0].innerHTML = 'Bambino ' + (current_nb_bambino + 1);
-            }
-        /* junior screen validation */
-    	} else if (current_screen[0].id.includes("junior")) {
-            addJunior(parent_fieldset);
-            next_screen = $(get_next_screen_id(junior_screen_id, is_last_junior()));
-            next_screen.find('h3')[0].innerHTML = 'Junior ' + (current_nb_junior + 1);
-    	}
+        } else {
+            next_screen = get_next_screen(parent_fieldset);
+        }
     	if (next_step) {
             parent_fieldset.fadeOut(400, function() {
                 next_screen.fadeIn();
@@ -357,13 +359,7 @@ jQuery(document).ready(function() {
                     $(this).removeClass('input-error');
                 }
             });
-            if (current_screen[0].id.startsWith("last-adult")) {
-                addAdult(parent_fieldset);
-            }
-            for(var i = 0 ; i < nb_adult ; i++) {
-                var adult = adults[i];
-                console.log(adult.name + ", " + adult.attend_to_vin_honneur + ", " + adult.attend_to_diner + ", " + adult.starter_1 + ", " + adult.starter_2 + ", " + adult.main_1+ ", " + adult.main_2);
-            }
+            get_next_screen(parent_fieldset);
         }
         var next_screen = $(form_prefix_id + final_screen_id);
         parent_fieldset.fadeOut(400, function() {
@@ -378,10 +374,6 @@ jQuery(document).ready(function() {
 
 function display_summary(screen) {
     var newDiv = document.createElement('div');
-    // title of adults
-    var newTitle = document.createElement('h4');
-    newTitle.innerHTML = "Adults";
-    newDiv.appendChild(newTitle);
     var list_of_names = get_all_names();
     var newP = document.createElement('p');
     newP.innerHTML = build_sentence_to_attend(list_of_names);
@@ -391,40 +383,44 @@ function display_summary(screen) {
 
 function build_sentence_to_attend(list_of_names) {
     var sentence = "";
-    for (var i = 0 ; i < list_of_names.length - 2 ; i++) {
-        sentence += list_of_names[i] + ', ';
+    if (list_of_names.length > 2) {
+        for (var i = 0 ; i < list_of_names.length - 2 ; i++) {
+            sentence += list_of_names[i] + ', ';
+        }
     }
-    sentence += list_of_names[length - 2] + ' and ' + list_of_names[length - 1] + ' will attend to ';
+    if (list_of_names.length > 1) {
+        sentence += list_of_names[list_of_names.length - 2] + ' and ' + list_of_names[list_of_names.length - 1] + ' will attend to ';
+    } else {
+        sentence += list_of_names[list_of_names.length - 1] + ' will attend to ';
+    }
     if (vin_honneur) {
-        sentence += ' to the vin d\'honneur';
+        sentence += ' the vin d\'honneur';
         if (banquet) {
             sentence += ' and to the banquet.';
         } else {
             sentence += '.';
         }
     } else {
-        sentence += ' to the banquet.';
+        sentence += ' the banquet.';
     }
     return sentence;
 }
 
 function get_all_names() {
-    var list_of_names = [];
-    iterate_and_append(adults, list_of_names);
-    iterate_and_append(bambinos, list_of_names);
-    iterate_and_append(juniors, list_of_names);
-    return list_of_names
+    var list_of_names = iterate_and_append(adults);
+    list_of_names = list_of_names.concat(iterate_and_append(bambinos));
+    list_of_names = list_of_names.concat(iterate_and_append(juniors));
+    return list_of_names;
 }
 
-function iterate_and_append(array, acc) {
-    console.log(array);
+function iterate_and_append(array) {
+    var acc = []
     for(var i = 0 ; i < array.length ; i++) {
         var element = array[i];
-        console.log(element);
-        console.log(element.name);
         acc.push(element.name);
-        console.log(acc);
     }
+    console.log(acc);
+    return acc;
 }
 
 // image uploader scripts
