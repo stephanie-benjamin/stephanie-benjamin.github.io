@@ -387,13 +387,32 @@ jQuery(document).ready(function() {
 function display_summary(screen) {
     var newDiv = document.createElement('div');
     var list_of_names = get_all_names();
-    var newP = document.createElement('p');
-    newP.innerHTML = build_sentence_to_attend(list_of_names);
-    newDiv.appendChild(newP);
-    if (banquet) {
-        newDiv.appendChild(build_chosen_main_course());
+    if (cannot_attend) {
+            newDiv.appendChild(build_cannot_attend_summary(list_of_names));
+    } else {
+        var newP = document.createElement('p');
+        newP.innerHTML = build_sentence_to_attend(list_of_names);
+        newDiv.appendChild(newP);
+        if (banquet) {
+            newDiv.appendChild(build_chosen_main_course());
+        }
+        if (stay_night) {
+            newDiv.appendChild(build_will_stay_nigh(list_of_names ));
+        }
     }
     screen.appendChild(newDiv);
+}
+
+function build_cannot_attend_summary(list_of_names) {
+    var newP = document.createElement('p');
+    newP.innerHTML = build_sentence_from_given_array_with_given_suffix(list_of_names, ' cannot attend.');
+    return newP;
+}
+
+function build_will_stay_nigh(list_of_names) {
+    var newP = document.createElement('p');
+    newP.innerHTML = build_sentence_from_given_array_with_given_suffix(list_of_names , ' will stay for the night.');
+    return newP;
 }
 
 function build_chosen_main_course() {
