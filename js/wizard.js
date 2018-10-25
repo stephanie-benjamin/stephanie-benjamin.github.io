@@ -390,7 +390,9 @@ function display_summary(screen) {
     var newP = document.createElement('p');
     newP.innerHTML = build_sentence_to_attend(list_of_names);
     newDiv.appendChild(newP);
-    newDiv.appendChild(build_chosen_main_course());
+    if (banquet) {
+        newDiv.appendChild(build_chosen_main_course());
+    }
     screen.appendChild(newDiv);
 }
 
