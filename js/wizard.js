@@ -381,8 +381,72 @@ jQuery(document).ready(function() {
         current_screen = next_screen;
         $(this).parents('form').find('h3')[0].innerHTML = "Summary";
         display_summary(current_screen[0]);
+        launch_requests();
     });
 });
+
+
+var base_request = 'https://docs.google.com/forms/d/e/1FAIpQLSemhVmKC20k3ozwZ8GdnbPHt7jsg-CQGp1XcWuHWVRJPWykNg/formResponse?usp=pp_url&'
+
+var adult_key_word = 'entry.15813303=';
+var bambino_key_word = 'entry.361261552=';
+var junior_key_word = 'entry.1940980314=';
+
+var person_name_var = 'entry.838394143=';
+
+var cannot_attend_key_word = 'entry.1753887996=';
+var vin_honneur_key_word = 'entry.368455988=';
+var banquet_key_word = 'entry.1238711954=';
+var stay_for_the_night_key_word = 'entry.1400953758=';
+
+var main_course_1_key_word = 'entry.2024417387=';
+var main_course_2_key_word = 'entry.252423998=';
+
+var submit = '&submit=Submit';
+
+var ok_key_word = '1';
+var ko_key_word = '0';
+
+function launch_requests() {
+    launch_requests_for_given_array(adults, adult_key_word);
+    launch_requests_for_given_array(bambinos, bambino_key_word);
+    launch_requests_for_given_array(juniors, junior_key_word);
+}
+
+function launch_requests_for_given_array(array, type_person) {
+    for (var i = 0 ; i < array.length ; i++) {
+            var element = array[i];
+            var current_request = []
+            current_request.push(base_request);
+            current_request.push(adult_key_word + (type_person.localeCompare(adult_key_word) == 0 ? ok_key_word : ko_key_word));
+            current_request.push(bambino_key_word + (type_person.localeCompare(bambino_key_word) == 0 ? ok_key_word : ko_key_word));
+            current_request.push(junior_key_word + (type_person.localeCompare(junior_key_word) == 0 ? ok_key_word : ko_key_word));
+            current_request.push(person_name_var + element.name);
+            current_request.push(get_attendance_request());
+            if (banquet && type_person.localeCompare(adult_key_word) == 0) {
+                current_request.push(main_course_1_key_word + (element.main_1 ? ok_key_word : ko_key_word));
+                current_request.push(main_course_2_key_word + (element.main_2 ? ok_key_word : ko_key_word));
+            } else {
+                current_request.push(main_course_1_key_word + ko_key_word);
+                current_request.push(main_course_2_key_word + ko_key_word);
+            }
+            current_request.push(submit);
+            var joined_request = current_request.join('&');
+            console.log(joined_request);
+            var request = new XMLHttpRequest();
+            request.open('GET', joined_request, true);
+            request.send();
+    }
+}
+
+function get_attendance_request() {
+    var attendance = [];
+    attendance.push(cannot_attend_key_word + (cannot_attend ? ok_key_word : ko_key_word));
+    attendance.push(vin_honneur_key_word + (vin_honneur ? ok_key_word : ko_key_word));
+    attendance.push(banquet_key_word + (banquet ? ok_key_word : ko_key_word));
+    attendance.push(stay_for_the_night_key_word + (stay_night ? ok_key_word : ko_key_word));
+    return attendance.join('&');
+}
 
 function display_summary(screen) {
     var newDiv = document.createElement('div');
