@@ -1,7 +1,9 @@
 .form-box {
-	padding-top: 40px;
-	padding-bottom: 40px;
-
+	/*padding-top: 40px;
+	padding-bottom: 40px;*/
+    background-image: url("../img/form/header.gif");
+    background-repeat: no-repeat;
+    background-position: center top;
 /*	background: rgb(234,88,4); /* Old browsers */
 /*	background: -moz-linear-gradient(top,  rgba(234,88,4,1) 0%, rgba(234,40,3,1) 51%, rgba(234,88,4,1) 100%); /* FF3.6-15 */
 /*	background: -webkit-linear-gradient(top,  rgba(234,88,4,1) 0%,rgba(234,40,3,1) 51%,rgba(234,88,4,1) 100%); /* Chrome10-25,Safari5.1-6 */
