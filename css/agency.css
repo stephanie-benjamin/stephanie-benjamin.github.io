@@ -169,7 +169,7 @@ img::-moz-selection {
 header.masthead {
   text-align: center;
   color: black;
-  background-image: url("../img/header-bg_scaled.jpg");
+  /*background-image: url("../img/header-bg_scaled.jpg");*/
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center bottom;
