@@ -25,8 +25,8 @@ var selected_suffix;
 
 var last_prefix = "last-";
 
-var main_course_1 = "Agneau";
-var main_course_2 = "Cabillaud";
+var main_course_1 = "Cod fillet with sun grilled vegetables, crushed potatoes with olive oil & sun dried tomato cream";
+var main_course_2 = "Noisette of lamb marinated at the orient parfum, roasted pear, glazed multicolored carrots & golden potatoes";
 
 /*
     ids of forms input
@@ -491,12 +491,16 @@ function build_chosen_main_course() {
         }
     }
     var newDiv = document.createElement('div');
-    var newP = document.createElement('p');
-    newP.innerHTML = build_sentence_from_given_array_with_given_suffix(adult_main_1, ' will have ' + main_course_1);
-    newDiv.appendChild(newP);
-    newP = document.createElement('p');
-    newP.innerHTML = build_sentence_from_given_array_with_given_suffix(adult_main_2, ' will have ' + main_course_2);
-    newDiv.appendChild(newP);
+    if (adult_main_1.length > 0) {
+        var newP = document.createElement('p');
+        newP.innerHTML = build_sentence_from_given_array_with_given_suffix(adult_main_1, ' will have ' + main_course_1);
+        newDiv.appendChild(newP);
+    }
+    if (adult_main_2.length > 0) {
+        newP = document.createElement('p');
+        newP.innerHTML = build_sentence_from_given_array_with_given_suffix(adult_main_2, ' will have ' + main_course_2);
+        newDiv.appendChild(newP);
+    }
     return newDiv;
 }
 
