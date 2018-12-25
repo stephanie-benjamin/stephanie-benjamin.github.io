@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 
@@ -21,6 +21,10 @@
           type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
+    <link href="https://fonts.googleapis.com/css?family=Charmonman" rel="stylesheet">
+
+    <link href='css/font/stylesheet.css' rel='stylesheet' type='text/css'>
+
     <!-- Custom styles for this template -->
     <link href="css/agency.css" rel="stylesheet">
 
@@ -40,16 +44,121 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#agenda">Agenda</a>
+                    <a class="nav-link js-scroll-trigger" href="#agenda">Programme</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#confirmation">Confirmation</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#portfolio">Guests Guide</a>
+                    <a class="nav-link js-scroll-trigger" href="#portfolio">Guide des invités</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link caret dropdown-toggle" href="#" data-toggle="dropdown"></a>
+                    <ul class="dropdown-menu" style="text-transform: none;">
+                        <!-- Wedding Ceremony -->
+                        <li>
+                            <a class="portfolio-link" data-toggle="modal" href="#modalCeremony">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        Cérémonie
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- Wedding Reception -->
+                        <li>
+                            <a class="portfolio-link" data-toggle="modal" href="#modalReception">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        Réception
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- Wedding Dress Code -->
+                        <li>
+                            <a class="portfolio-link" data-toggle="modal" href="#modalDressCode">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        Code vestimentaire
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- Photos -->
+                        <li>
+                            <a class="portfolio-link" data-toggle="modal" href="#modalPhotos">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        Photos
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- Gifts -->
+                        <li>
+                            <a class="portfolio-link" data-toggle="modal" href="#modalGifts">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        Cadeaux
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- Post-Wedding -->
+                        <li>
+                            <a class="portfolio-link" data-toggle="modal" href="#modalPostWedding">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        Après-mariage
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- Visa information -->
+                        <li>
+                            <a class="portfolio-link" data-toggle="modal" href="#modalVisa">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        Informations de voyage
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- Accomodation -->
+                        <li>
+                            <a class="portfolio-link" data-toggle="modal" href="#modalAccomodation">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        Hébergement
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- Top things -->
+                        <li>
+                            <a class="portfolio-link" data-toggle="modal" href="#modalTop">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        Top activités à Lille
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- CONTACT -->
+                        <li>
+                            <a class="portfolio-link" data-toggle="modal" href="#modalEmergency">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        Contacts d'urgence
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#story">Our Story</a>
+                    <a class="nav-link js-scroll-trigger" href="#story">Notre histoire</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="index.html">
@@ -65,8 +174,8 @@
 <header class="masthead responsive-image">
     <div class="container">
         <div class="intro-text">
-            <div class="intro-heading">Bienvenue sur notre WeDsite!</div>
-            <div class="intro-lead-in">Nous sommes heureux de partager les details du plus beau jour de notre vie.</div>
+            <div class="intro-heading">Bienvenue sur notre WeDsite !</div>
+            <div class="intro-lead-in">Nous sommes heureux de détailler le plus beau jour de notre vie.</div>
             <!--<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>-->
         </div>
     </div>
@@ -77,42 +186,45 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">Agenda of March, 23 2019</h2>
+                <h2 class="section-heading text-uppercase">Programme du samedi 23 mars 2019</h2>
             </div>
         </div>
         <div class="row text-center">
             <div class="col-md-6">
-                <h4 class="service-heading"> 3:15 pm</h4>
+                <h4 class="service-heading"> 15h15' </h4>
                 <img class="rounded-circle img-fluid" src="img/agenda/Lille_eglise_Saint_Maurice_arriere.jpg" alt="">
-                <h4 class="service-heading">Église Saint Maurice</h4>
+                <h4 class="service-heading">Église Saint-Maurice</h4>
                 <p class="text-muted">
-                    The <b>Église Saint-Maurice</b> is a beautiful old church in the historic centre of <a
-                        href="https://en.wikipedia.org/wiki/Lille">Lille</a>, northern France. It has many lovely pieces
-                    of art and pretty stained glass, which makes this church simply charming. Its construction began at
-                    the end of the 14th century and completed at the end of the 19th century, and it was extended over
-                    more than four centuries. Built on top of an old place dedicated to Mars, the roman God of War, this
-                    church has an unique orientation and is the only one to be dedicated to Saint Maurice in the North
-                    of the France.
+                    L'<b>Église Saint-Maurice</b> est une belle vieille église catholique dans le centre historique de
+                    <a href="https://fr.wikipedia.org/wiki/Lille">Lille</a>, Nord de la France. Elle a beaucoup de
+                    belles œuvres d'art et de jolis vitraux, ce qui rend cette église tout simplement charmante.
+                    Sa construction a débuté à la fin du XIVe siècle et s'est achevée à la fin du XIXe siècle.
+                    Construite au sommet d'un lieu de culte dédié à Mars, le dieu romain de la guerre, cette église présente une orientation unique et est la seule à être dédiée à Saint Maurice dans le Nord de la France.
                 </p>
                 <p>
                     Address: <a
                         href="https://www.google.fr/maps/place/%C3%89glise+Saint-Maurice/@50.6389596,3.068229,15z/data=!4m8!1m2!2m1!1seglise+saint+maurice+lille!3m4!1s0x47c2d58976929357:0x3735a99b609805cc!8m2!3d50.6359342!4d3.0675549">19
-                    Parvis Saint-Maurice, 59800 Lille</a>.
+                    Parvis Saint-Maurice, 59800 Lille, France</a>.
                 </p>
             </div>
             <div class="col-md-6">
-                <h4 class="service-heading"> 5:30 pm</h4>
+                <h4 class="service-heading"> 17h30' </h4>
                 <img class="rounded-circle img-fluid" src="img/agenda/domaine-des-cigognes_scaled.jpg" height="280"
                      width="280" alt="">
                 <h4 class="service-heading">Domaine des Cigognes</h4>
                 <p class="text-muted">
-
-                </p>
+                    Situé à 20 minutes du centre de Lille, le <b> Domaine des Cigognes </b> est un lieu exceptionnel
+                    pour vivre des moments chaleureux et conviviaux. Le charme de sa cour intérieure et la beauté de son
+                    parc de 4 hectares vous raviront.
+                    Ce domaine vieux de 200 ans a été construit par un fermier pour sa maîtresse. Ils disent que le
+                    fermier a placé au sommet de la cheminée un nid et des cigognes.
+                    Il y a quelques années, le domaine a été décoré de vitraux et de lustres.
+                    En 2009, de nouveaux travaux d'expansion et de modernisation ont été lancés pour organiser des
+                    réceptions dans une atmosphère magique !
                 <p>
                     Address: <a
                         href="https://www.google.se/maps?q=domaines+des+cigognes+ennevelin&um=1&ie=UTF-8&sa=X&ved=0ahUKEwi7ud2L9OLdAhVnsIsKHb5iBpMQ_AUICigB">Departementale
-                    917 / Pont Thibault, 59710 Ennevelin, France
-                </a>.
+                    917 / Pont Thibault, 59710 Ennevelin, France</a>.
                 </p>
             </div>
         </div>
@@ -124,10 +236,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h3 class="section-heading">For organizational matter, please confirm you filled out this <a
-                        type='button' class="portfolio-link" data-toggle="modal" href="#portfolioModalForm">form</a>
+                <h3 class="section-heading">Pour des raisons d'organisation, veuillez confirmer que vous avez rempli ce
+                    <a
+                            type='button' class="portfolio-link" data-toggle="modal" href="#portfolioModalForm">formulaire</a>
                 </h3>
-                <h4 class="section-heading"><i>before January 15, 2019 by contacting:</i></h4>
+                <h4 class="section-heading"><i>avant le 23 janvier 2019, en contactant :</i></h4>
             </div>
         </div>
         <div class="col-xs-12" style="height:50px;"></div>
@@ -135,7 +248,7 @@
             <div class="col-sm-6">
                 <div class="team-member">
                     <img class="mx-auto rounded-circle" src="img/team/1_scaled.jpg" alt="">
-                    <h4>The Bride</h4>
+                    <h4>La Mariée</h4>
                     <div class="col-xs-12" style="height:50px;"></div>
                     <ul class="list-inline social-buttons" id="contacts">
                         <li id="stephaniePhoneNumber" class="list-inline-item" data-toggle="tooltip"
@@ -168,7 +281,7 @@
             <div class="col-sm-6">
                 <div class="team-member">
                     <img class="mx-auto rounded-circle" src="img/team/2_scaled.jpg" alt="">
-                    <h4>The Groom</h4>
+                    <h4>Le Marié</h4>
                     <div class="col-xs-12" style="height:50px;"></div>
                     <ul class="list-inline social-buttons">
                         <li id="benjaminPhoneNumber" class="list-inline-item" data-toggle="tooltip" data-placement="top"
@@ -201,8 +314,8 @@
         </div>
         <div class="row">
             <div class="col-lg-8 mx-auto text-center">
-                <p class="large text-muted"><i>&ldquo;What therefore God has joined together, let not man put asunder.&rdquo;</i>
-                    &mdash; Mark 10:9</p>
+                <p class="large text-muted"><i>&ldquo;Ce que Dieu a uni, que l’homme ne le sépare pas.&rdquo;</i>
+                    &mdash; Marc 10:9</p>
             </div>
         </div>
     </div>
@@ -213,51 +326,13 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">Guests Guide</h2>
+                <h2 class="section-heading text-uppercase">Guide des invités</h2>
             </div>
         </div>
         <div class="row">
+            <!-- Wedding Ceremony-->
             <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="img/info/VisaApplication1_scaled.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Visa Information</h4>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="img/info/Accomodation_scaled.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Accommodation in Lille</h4>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="img/info/Lille_scaled.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Top Things in Lille</h4>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+                <a class="portfolio-link" data-toggle="modal" href="#modalCeremony">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
                             <i class="fa fa-plus fa-3x"></i>
@@ -266,11 +341,12 @@
                     <img class="img-fluid" src="img/info/Ceremony1_scaled.JPG" alt="">
                 </a>
                 <div class="portfolio-caption">
-                    <h4>Wedding Ceremony</h4>
+                    <h4>Cérémonie</h4>
                 </div>
             </div>
+            <!-- Wedding Reception-->
             <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+                <a class="portfolio-link" data-toggle="modal" href="#modalReception">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
                             <i class="fa fa-plus fa-3x"></i>
@@ -279,11 +355,12 @@
                     <img class="img-fluid" src="img/info/reception_2_scaled.jpg" alt="">
                 </a>
                 <div class="portfolio-caption">
-                    <h4>Wedding Reception</h4>
+                    <h4>Réception</h4>
                 </div>
             </div>
+            <!-- Wedding Dress Code-->
             <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+                <a class="portfolio-link" data-toggle="modal" href="#modalDressCode">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
                             <i class="fa fa-plus fa-3x"></i>
@@ -292,13 +369,26 @@
                     <img class="img-fluid" src="img/info/DressCode2_scaled.jpg" alt="">
                 </a>
                 <div class="portfolio-caption">
-                    <h4>Wedding Dress Code</h4>
+                    <h4>Code vestimentaire</h4>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-6 portfolio-item">
-            </div>
+            <!-- Photos -->
             <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+                <a class="portfolio-link" data-toggle="modal" href="#modalPhotos">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="img/info/photo.jpg" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>Photos</h4>
+                </div>
+            </div>
+            <!-- Gifts-->
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a class="portfolio-link" data-toggle="modal" href="#modalGifts">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
                             <i class="fa fa-plus fa-3x"></i>
@@ -307,11 +397,74 @@
                     <img class="img-fluid" src="img/info/Gift1_scaled.jpg" alt="">
                 </a>
                 <div class="portfolio-caption">
-                    <h4>Gifts</h4>
+                    <h4>Cadeaux</h4>
                 </div>
             </div>
+            <!-- Post-wedding -->
             <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+                <a class="portfolio-link" data-toggle="modal" href="#modalPostWedding">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="img/info/day_plus_one.jpg" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>Après-mariage</h4>
+                </div>
+            </div>
+            <!-- Visa Information -->
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a class="portfolio-link" data-toggle="modal" href="#modalVisa">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="img/info/VisaApplication1_scaled.jpg" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>Informations sur le voyage</h4>
+                </div>
+            </div>
+            <!-- Accommodation in Lille -->
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a class="portfolio-link" data-toggle="modal" href="#modalAccomodation">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="img/info/Accomodation_scaled.jpg" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>Hébergement à Lille</h4>
+                </div>
+            </div>
+            <!-- EMPTY
+            <div class="col-md-2 col-sm-6 portfolio-item">
+            </div>
+            <!-- Top Things in Lille-->
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a class="portfolio-link" data-toggle="modal" href="#modalTop">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="img/info/Lille_scaled.jpg" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>Top activités à Lille</h4>
+                </div>
+            </div>
+            <!-- EMPTY            -->
+            <div class="col-md-4 col-sm-6 portfolio-item">
+            </div>
+            <!-- Emergency Contact -->
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a class="portfolio-link" data-toggle="modal" href="#modalEmergency">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
                             <i class="fa fa-plus fa-3x"></i>
@@ -320,10 +473,11 @@
                     <img class="img-fluid" src="img/info/Contact_scaled.jpg" alt="">
                 </a>
                 <div class="portfolio-caption">
-                    <h4>Emergency Contact</h4>
+                    <h4>Contacts d'urgence</h4>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-6 portfolio-item">
+            <!-- EMPTY            -->
+            <div class="col-md-4 col-sm-6 portfolio-item">
             </div>
         </div>
     </div>
@@ -347,17 +501,19 @@
                             <div class="col-lg-8">
                                 <div class="form-wizard">
                                     <form role="form" action="" method="post">
-                                        <h3>Confirm attendance</h3>
+                                        <h3>RSVP</h3>
+
+                                        <!-- FIRST SCREEN -->
                                         <fieldset id="first-screen">
                                             <div class="form-group">
                                                 <div>
                                                     <input type="checkbox" id="cannot_attend" name="cannot_attend"/>
-                                                    <label for="cannot_attend">Cannot attend
+                                                    <label for="cannot_attend">Ne peut pas être présent
                                                     </label>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label>Attend to:</label>
+                                                <label>Sera présent pour :</label>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-lg-3"></div>
@@ -371,34 +527,34 @@
                                                 <div class="col-lg-3"></div>
                                                 <div class="col-lg-6">
                                                     <input type="checkbox" id="banquet" name="banquet"/>
-                                                    <label for="banquet">Banquet</label>
+                                                    <label for="banquet">Dîner</label>
                                                 </div>
                                                 <div class="col-lg-3"></div>
                                             </div>
                                             <div class="form-group">
                                                 <div>
                                                     <input type="checkbox" id="stay_night" name="stay_night"/>
-                                                    <label for="stay_night">Want to stay for the night</label>
+                                                    <label for="stay_night">Souhaite rester pour la nuit dans une chambre au “Domaine des Cigognes”</label>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="number_adult">Number Of Adults:</label>
+                                                <label for="number_adult">Nombre d'Adultes :</label>
                                                 <input type="number" id="number_adult" name="number_adult"
                                                        min="1" max="10" required/>
                                             </div>
                                             <div class="form-group">
-                                                <label for="number_bambino">Number Of Bambinos (between 3 and
-                                                    8):</label>
+                                                <label for="number_bambino">Nombre de Bambinos (entre 3 and
+                                                    8) :</label>
                                                 <input type="number" id="number_bambino" name="number_bambino"
                                                        min="0" max="10" required/>
                                             </div>
                                             <div class="form-group">
-                                                <label for="number_junior">Number Of Juniors (between 8 and 14):</label>
+                                                <label for="number_junior">Nombre de Juniors (entre 8 and 14) :</label>
                                                 <input type="number" id="number_junior" name="number_junior"
                                                        min="0" max="10" required/>
                                             </div>
                                             <div class="form-wizard-buttons">
-                                                <button type="button" class="btn btn-next">Next</button>
+                                                <button type="button" class="btn btn-next">Suivant</button>
                                             </div>
 
                                         </fieldset>
@@ -407,159 +563,153 @@
 
                                         <fieldset id="adult-screen-banquet">
                                             <div class="form-group">
-                                                <h3>Adult 1</h3>
+                                                <h3>Adulte 1</h3>
                                                 <div class="form-group">
-                                                    <label for="name-adult">Name</label>
+                                                    <label for="name-adult">Nom</label>
                                                     <input type="text" class="form-control" id="name-adult"
-                                                           aria-describedby="nameHelp" placeholder="Enter your name"
+                                                           aria-describedby="nameHelp" placeholder="Entrez votre nombre"
                                                            required>
-                                                    <small id="nameHelp-abs" class="form-text text-muted">Please, enter
-                                                        your full
-                                                        name
+                                                    <small id="nameHelp-abs" class="form-text text-muted">
+                                                        Entrez votre nom
                                                     </small>
                                                 </div>
                                                 <div class="form-group">
-                                                    <div class="form-group">
-                                                        <label>Starter</label>
+                                                    <div class="form-group menu-entry">
+                                                        <b> <span style="color: #fed136; font-size: 20px;">*</span>
+                                                            Entrées</b>: Douceur de Saumon Fumé a la Ficelle, Crème
+                                                        Corné Croustillant de Salade tendre Vinaigrette à la Betterave
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-3"></div>
                                                 <div class="form-group">
                                                     <div class="form-group">
-                                                        <label>Choose your main course:</label>
+                                                        <label> <span style="color: #fed136; font-size: 20px;">*</span>
+                                                            Choissisez votre <b>plat</b>:</label>
                                                     </div>
-                                                    <div class="col-lg-3"></div>
-                                                    <div class="col-lg-6">
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input type="radio" class="form-check-input"
-                                                                       name="optionsMain"
-                                                                       id="main-adult-banquet-1" value="main_course1"
-                                                                       required>
-                                                                Main Course 1
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input type="radio" class="form-check-input"
-                                                                       name="optionsMain"
-                                                                       id="main-adult-banquet-2" value="main_course2"
-                                                                       required>
-                                                                Main Course 2
-                                                            </label>
-                                                        </div>
+                                                    <div class="form-check menu-entry">
+                                                        <input type="radio" class="form-check-input"
+                                                               name="optionsMain"
+                                                               id="main-adult-banquet-1" value="main_course1"
+                                                               required>
+                                                        Dos de Cabillaud aux Légumes du Soleil Grillés écrasé de Pomme
+                                                        de Terre à l’huile d’Olive &amp Crème de Tomates Séchées
+                                                    </div>
+                                                    <div class="form-check menu-entry">
+                                                        <input type="radio" class="form-check-input"
+                                                               name="optionsMain"
+                                                               id="main-adult-banquet-2" value="main_course2"
+                                                               required>
+                                                        Noisette d’Agneau Mariné au Parfum d’Orient, Poire Rôtie,
+                                                        Carottes Multicolores Glacées &amp Pommes de Terre Dorées
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-2"></div>
-                                            </div>
-                                            <div class="form-group">
                                                 <div class="form-group">
-                                                    <label>Cheese</label>
+                                                    <div class="form-group menu-entry">
+                                                        <span style="color: #fed136; font-size: 20px;">*</span> Buffet
+                                                        de <b>Fromages</b> Affinés
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
                                                 <div class="form-group">
-                                                    <label>Dessert</label>
+                                                    <div class="form-group menu-entry">
+                                                        <span style="color: #fed136; font-size: 20px;">*</span> Buffet
+                                                        de <b>desserts</b> &amp Wedding cake
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-wizard-buttons">
-                                                <button type="button" class="btn btn-previous">Previous</button>
-                                                <button type="submit" class="btn btn-next">Next</button>
+                                                <div class="form-wizard-buttons">
+                                                    <button type="button" class="btn btn-previous">Précèdent</button>
+                                                    <button type="submit" class="btn btn-next">Suivant</button>
+                                                </div>
                                             </div>
                                         </fieldset>
 
                                         <fieldset id="last-adult-screen-banquet">
                                             <div class="form-group">
-                                                <h3>Adult 1</h3>
+                                                <h3>Adulte 1</h3>
                                                 <div class="form-group">
-                                                    <label for="name-adult">Name</label>
+                                                    <label for="name-adult">Nom</label>
                                                     <input type="text" class="form-control" id="name-adult"
-                                                           aria-describedby="nameHelp" placeholder="Enter your name"
+                                                           aria-describedby="nameHelp" placeholder="Entrez votre nom"
                                                            required>
-                                                    <small id="nameHelp-abs" class="form-text text-muted">Please, enter
-                                                        your full
-                                                        name
+                                                    <small id="nameHelp-abs" class="form-text text-muted">
+                                                        Entrez votre nom
                                                     </small>
                                                 </div>
                                                 <div class="form-group">
-                                                    <div class="form-group">
-                                                        <label>Starter</label>
+                                                    <div class="form-group menu-entry">
+                                                        <b> <span style="color: #fed136; font-size: 20px;">*</span>
+                                                            Entrées</b>: Douceur de Saumon Fumé a la Ficelle, Crème
+                                                        Corné Croustillant de Salade tendre Vinaigrette à la Betterave
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-3"></div>
                                                 <div class="form-group">
                                                     <div class="form-group">
-                                                        <label>Choose your main course:</label>
+                                                        <label> <span style="color: #fed136; font-size: 20px;">*</span>
+                                                            Choissisez votre <b>plat</b>:</label>
                                                     </div>
-                                                    <div class="col-lg-3"></div>
-                                                    <div class="col-lg-6">
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input type="radio" class="form-check-input"
-                                                                       name="optionsMain"
-                                                                       id="main-adult-banquet-1" value="main_course1"
-                                                                       required>
-                                                                Main Course 1
-                                                            </label>
-                                                        </div>
-                                                        <div class="form-check">
-                                                            <label class="form-check-label">
-                                                                <input type="radio" class="form-check-input"
-                                                                       name="optionsMain"
-                                                                       id="main-adult-banquet-2" value="main_course2"
-                                                                       required>
-                                                                Main Course 2
-                                                            </label>
-                                                        </div>
+                                                    <div class="form-check menu-entry">
+                                                        <input type="radio" class="form-check-input"
+                                                               name="optionsMain"
+                                                               id="main-adult-banquet-1" value="main_course1"
+                                                               required>
+                                                        Dos de Cabillaud aux Légumes du Soleil Grillés écrasé de Pomme
+                                                        de Terre à l’huile d’Olive &amp Crème de Tomates Séchées
+                                                    </div>
+                                                    <div class="form-check menu-entry">
+                                                        <input type="radio" class="form-check-input"
+                                                               name="optionsMain"
+                                                               id="main-adult-banquet-2" value="main_course2"
+                                                               required>
+                                                        Noisette d’Agneau Mariné au Parfum d’Orient, Poire Rôtie,
+                                                        Carottes Multicolores Glacées &amp Pommes de Terre Dorées
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-2"></div>
-                                            </div>
-                                            <div class="form-group">
                                                 <div class="form-group">
-                                                    <label>Cheese</label>
+                                                    <div class="form-group menu-entry">
+                                                        <span style="color: #fed136; font-size: 20px;">*</span> Buffet
+                                                        de <b>Fromages</b> Affinés
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
                                                 <div class="form-group">
-                                                    <label>Dessert</label>
+                                                    <div class="form-group menu-entry">
+                                                        <span style="color: #fed136; font-size: 20px;">*</span> Buffet
+                                                        de <b>desserts</b> &amp Wedding cake
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-wizard-buttons">
-                                                <button type="button" class="btn btn-previous">Previous</button>
-                                                <button type="submit" class="btn btn-submit">Submit</button>
+                                                <div class="form-wizard-buttons">
+                                                    <button type="button" class="btn btn-previous">Précèdent</button>
+                                                    <button type="submit" class="btn btn-submit">Envoyer</button>
+                                                </div>
                                             </div>
                                         </fieldset>
 
                                         <fieldset id="adult-screen-vin">
                                             <div class="form-group">
-                                                <h3>Adult 1</h3>
+                                                <h3>Adulte 1</h3>
                                                 <div class="form-group">
-                                                    <label for="name-adult">Name</label>
+                                                    <label for="name-adult">Nom</label>
                                                     <input type="text" class="form-control" id="name-adult"
-                                                           aria-describedby="nameHelp" placeholder="Enter your name"
+                                                           aria-describedby="nameHelp" placeholder="Entrez voter nom"
                                                            required>
                                                 </div>
                                             </div>
                                             <div class="form-wizard-buttons">
-                                                <button type="button" class="btn btn-previous">Previous</button>
-                                                <button type="button" class="btn btn-next">Next</button>
+                                                <button type="button" class="btn btn-previous">Précèdent</button>
+                                                <button type="button" class="btn btn-next">Suivant</button>
                                             </div>
                                         </fieldset>
 
                                         <fieldset id="last-adult-screen-vin">
                                             <div class="form-group">
-                                                <h3>Adult 1</h3>
+                                                <h3>Adulte 1</h3>
                                                 <div class="form-group">
-                                                    <label for="name-adult">Name</label>
+                                                    <label for="name-adult">Nom</label>
                                                     <input type="text" class="form-control" id="name-adult"
-                                                           aria-describedby="nameHelp" placeholder="Enter your name"
+                                                           aria-describedby="nameHelp" placeholder="Entrez votre nom"
                                                            required>
                                                 </div>
                                             </div>
                                             <div class="form-wizard-buttons">
-                                                <button type="button" class="btn btn-previous">Previous</button>
-                                                <button type="submit" class="btn btn-submit">Submit</button>
+                                                <button type="button" class="btn btn-previous">Précèdent</button>
+                                                <button type="submit" class="btn btn-submit">Suivant</button>
                                             </div>
                                         </fieldset>
 
@@ -571,15 +721,15 @@
                                             <div class="form-group">
                                                 <h3>Bambino 1</h3>
                                                 <div class="form-group">
-                                                    <label for="name-bambino">Name</label>
+                                                    <label for="name-bambino">Nom</label>
                                                     <input type="text" class="form-control" id="name-bambino"
-                                                           aria-describedby="nameHelp" placeholder="Enter your name"
+                                                           aria-describedby="nameHelp" placeholder="Entrez votre nom"
                                                            required>
                                                 </div>
                                             </div>
                                             <div class="form-wizard-buttons">
-                                                <button type="button" class="btn btn-previous">Previous</button>
-                                                <button type="button" class="btn btn-next">Next</button>
+                                                <button type="button" class="btn btn-previous">Précèdent</button>
+                                                <button type="button" class="btn btn-next">Suivant</button>
                                             </div>
                                         </fieldset>
 
@@ -589,13 +739,13 @@
                                                 <div class="form-group">
                                                     <label for="name-bambino">Name</label>
                                                     <input type="text" class="form-control" id="name-bambino"
-                                                           aria-describedby="nameHelp" placeholder="Enter your name"
+                                                           aria-describedby="nameHelp" placeholder="Entrez votre nom"
                                                            required>
                                                 </div>
                                             </div>
                                             <div class="form-wizard-buttons">
-                                                <button type="button" class="btn btn-previous">Previous</button>
-                                                <button type="button" class="btn btn-next">Next</button>
+                                                <button type="button" class="btn btn-previous">Précèdent</button>
+                                                <button type="button" class="btn btn-next">Suivant</button>
                                             </div>
                                         </fieldset>
 
@@ -603,15 +753,15 @@
                                             <div class="form-group">
                                                 <h3>Bambino 1</h3>
                                                 <div class="form-group">
-                                                    <label for="name-bambino">Name</label>
+                                                    <label for="name-bambino">Nom</label>
                                                     <input type="text" class="form-control" id="name-bambino"
-                                                           aria-describedby="nameHelp" placeholder="Enter your name"
+                                                           aria-describedby="nameHelp" placeholder="Entrez votre nom"
                                                            required>
                                                 </div>
                                             </div>
                                             <div class="form-wizard-buttons">
-                                                <button type="button" class="btn btn-previous">Previous</button>
-                                                <button type="submit" class="btn btn-submit">Submit</button>
+                                                <button type="button" class="btn btn-previous">Précèdent</button>
+                                                <button type="submit" class="btn btn-submit">Envoyer</button>
                                             </div>
                                         </fieldset>
 
@@ -619,15 +769,15 @@
                                             <div class="form-group">
                                                 <h3>Bambino 1</h3>
                                                 <div class="form-group">
-                                                    <label for="name-adult">Name</label>
+                                                    <label for="name-adult">Nom</label>
                                                     <input type="text" class="form-control" id="name-bambino"
-                                                           aria-describedby="nameHelp" placeholder="Enter your name"
+                                                           aria-describedby="nameHelp" placeholder="Entrez votre nom"
                                                            required>
                                                 </div>
                                             </div>
                                             <div class="form-wizard-buttons">
-                                                <button type="button" class="btn btn-previous">Previous</button>
-                                                <button type="submit" class="btn btn-submit">Submit</button>
+                                                <button type="button" class="btn btn-previous">Précèdent</button>
+                                                <button type="submit" class="btn btn-submit">Envoyer</button>
                                             </div>
                                         </fieldset>
 
@@ -639,15 +789,15 @@
                                             <div class="form-group">
                                                 <h3>Junior 1</h3>
                                                 <div class="form-group">
-                                                    <label for="name-junior">Name</label>
+                                                    <label for="name-junior">Nom</label>
                                                     <input type="text" class="form-control" id="name-junior"
-                                                           aria-describedby="nameHelp" placeholder="Enter your name"
+                                                           aria-describedby="nameHelp" placeholder="Entrez votre nom"
                                                            required>
                                                 </div>
                                             </div>
                                             <div class="form-wizard-buttons">
-                                                <button type="button" class="btn btn-previous">Previous</button>
-                                                <button type="button" class="btn btn-next">Next</button>
+                                                <button type="button" class="btn btn-previous">Précèdent</button>
+                                                <button type="button" class="btn btn-next">Suivant</button>
                                             </div>
                                         </fieldset>
 
@@ -655,15 +805,15 @@
                                             <div class="form-group">
                                                 <h3>Junior 1</h3>
                                                 <div class="form-group">
-                                                    <label for="name-junior">Name</label>
+                                                    <label for="name-junior">Nom</label>
                                                     <input type="text" class="form-control" id="name-junior"
-                                                           aria-describedby="nameHelp" placeholder="Enter your name"
+                                                           aria-describedby="nameHelp" placeholder="Entrez votre nom"
                                                            required>
                                                 </div>
                                             </div>
                                             <div class="form-wizard-buttons">
-                                                <button type="button" class="btn btn-previous">Previous</button>
-                                                <button type="button" class="btn btn-next">Next</button>
+                                                <button type="button" class="btn btn-previous">Précèdent</button>
+                                                <button type="button" class="btn btn-next">Suivant</button>
                                             </div>
                                         </fieldset>
 
@@ -671,15 +821,15 @@
                                             <div class="form-group">
                                                 <h3>Junior 1</h3>
                                                 <div class="form-group">
-                                                    <label for="name-junior">Name</label>
+                                                    <label for="name-junior">Nom</label>
                                                     <input type="text" class="form-control" id="name-junior"
-                                                           aria-describedby="nameHelp" placeholder="Enter your name"
+                                                           aria-describedby="nameHelp" placeholder="Entrez votre nom"
                                                            required>
                                                 </div>
                                             </div>
                                             <div class="form-wizard-buttons">
-                                                <button type="button" class="btn btn-previous">Previous</button>
-                                                <button type="button" class="btn btn-submit">Submit</button>
+                                                <button type="button" class="btn btn-previous">Précèdent</button>
+                                                <button type="button" class="btn btn-submit">Envoyer</button>
                                             </div>
                                         </fieldset>
 
@@ -687,15 +837,15 @@
                                             <div class="form-group">
                                                 <h3>Junior 1</h3>
                                                 <div class="form-group">
-                                                    <label for="name-junior">Name</label>
+                                                    <label for="name-junior">Nom</label>
                                                     <input type="text" class="form-control" id="name-junior"
-                                                           aria-describedby="nameHelp" placeholder="Enter your name"
+                                                           aria-describedby="nameHelp" placeholder="Entrer votre nom"
                                                            required>
                                                 </div>
                                             </div>
                                             <div class="form-wizard-buttons">
-                                                <button type="button" class="btn btn-previous">Previous</button>
-                                                <button type="button" class="btn btn-submit">Submit</button>
+                                                <button type="button" class="btn btn-previous">Précèdent</button>
+                                                <button type="button" class="btn btn-submit">Envoyer</button>
                                             </div>
                                         </fieldset>
 
@@ -723,7 +873,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">Our Love Story</h2>
+                <h2 class="section-heading text-uppercase">Notre Histoire d'Amour</h2>
                 <h3 class="section-subheading text-muted"></h3>
             </div>
         </div>
@@ -736,11 +886,11 @@
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>March 2016</h4>
+                                <h4>Mars 2016</h4>
                             </div>
                             <div class="timeline-body">
                                 <p class="text-muted" style="font-style: italic">
-                                    We met.
+                                    Nous nous sommes rencontrés.
                                 </p>
                             </div>
                         </div>
@@ -751,11 +901,11 @@
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>March 2017</h4>
+                                <h4>Mars 2017</h4>
                             </div>
                             <div class="timeline-body">
                                 <p class="text-muted" style="font-style: italic">
-                                    We fell in love.
+                                    Nous sommes tombés amoureux.
                                 </p>
                             </div>
                         </div>
@@ -766,11 +916,11 @@
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>May 2018</h4>
+                                <h4>Mai 2018</h4>
                             </div>
                             <div class="timeline-body">
                                 <p class="text-muted" style="font-style: italic">
-                                    He asked and she said YES!
+                                    Il a demandé et elle a dit OUI !
                                 </p>
                             </div>
                         </div>
@@ -781,11 +931,11 @@
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
-                                <h4>March 2019</h4>
+                                <h4>Mars 2019</h4>
                             </div>
                             <div class="timeline-body">
                                 <p class="text-muted" style="font-style: italic">
-                                    We're getting married!
+                                    Nous nous marrions !
                                 </p>
                             </div>
                         </div>
@@ -829,21 +979,89 @@ function callOrDisplay(number, id, cmd) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
-<!-- TODO Dans vêtements parler de la température
-<!-- TODO Dans Lille parler de voyager en Europe
-<!-- TODO Manage the HOTEL + Brunch
-<!-- TODO put the form in a modal
-
-
+<!-- TODO The table in accomodation is wrong on mobile
 
 <!-- Footer -->
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <span class="copyright"> Stéphanie &amp Benjamin &mdash; Copyright &copy; 2018</span>
+                <span class="copyright"> Stéphanie &amp Benjamin &mdash; Copyright &copy; 2018-2019</span>
             </div>
         </div>
     </div>
@@ -851,8 +1069,8 @@ function callOrDisplay(number, id, cmd) {
 
 <!-- Portfolio Modals -->
 
-<!-- Modal 1 -->
-<div class="portfolio-modal modal fade" a id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- CEREMONY -->
+<div class="portfolio-modal modal fade" a id="modalCeremony" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -863,24 +1081,41 @@ function callOrDisplay(number, id, cmd) {
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
+                        <h2 class="text-uppercase">Cérémonie</h2>
                         <div class="modal-body">
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Threads</li>
-                                <li>Category: Illustration</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fa fa-times"></i>
-                                Close Project
-                            </button>
+                            <p class="text-muted">
+                                La cérémonie de mariage aura lieu à 15h30' à l'église Saint-Maurice à Lille. Nous recommandons à nos invités de venir à l'église en métro ou en taxi.
+                                Elle est parfaitement accessible en métro, gare Lille Flandres. Il suffit de marcher 5 minutes de la gare à l'église.
+                                Pour nos invités venant de l'étranger, nous vous recommandons d'acheter un forfait de métro au lieu d'acheter des billets à l'unité.
+                                Transpole, l'opérateur de transport en commun de la métropole lilloise, propose des forfaits d'un jour, de 2 jours, de 3 jours et bien plus encore (voir l'intégralité des forfaits proposés <a
+                                    href="https://www.transpole.fr/fr/32-les-titres-occasionnels">ici</a>).
+                                Tous les billets et forfaits peuvent être achetés aux distributeurs automatiques dans les stations de métro.
+                                Il n'y a pas de parking réservé aux visiteurs de l'église. Nous demandons donc à nos invités qui prévoient de venir avec leurs propres voitures de prévoir plus de temps pour se garer à Lille, ce qui pourrait être compliqué.
+                                Néanmoins, le centre commercial Euralille a un parking souterrain payant et n'est pas loin.
+                            </p>
+                            <p class="text-muted">
+                                D'après la coutume libanaise, j'arriverai à l'église avec mon père qui me donnera à Benjamin, l'homme qui prendra soin de moi autant que mon père l'a fait.
+                                Ensuite, Benjamin et moi marcherons jusque l'autel une fois que tous les invités seront assis.
+                                Dans les cérémonies chrétiennes, la famille de la mariée est assise à gauche dans les premiers rangs, celle du marié à droite dans les premiers rangs.
+                                De même, la mariée se tient à gauche de l'autel tandis que le marié se tient à sa droite.
+                            </p>
+                            <p class="text-muted">
+                                Nous avons choisi de bénir notre union lors d'une cérémonie chrétienne bi-rituelle : latine et maronite.
+                                L'église maronite est en pleine communion avec le pape et l'église catholique.
+                                La communauté maronite est principalement concentrée au Liban, mais est également présente en Syrie, à Chypre et en Palestine.
+                                La partie latine de notre cérémonie sera célébrée par le Père Xavier et la partie maronite sera célébrée par le Père Jad.
+                                Des rituels maronites, comme le couronnement du mariage, ainsi que des prières arabes seront ajoutés à la cérémonie latine afin de refléter notre fusion multiculturelle - libanaise et française.
+                                La cérémonie durera environ 1 heure et 15 minutes.
+                            </p>
+                            <p class="text-muted">
+                                Après la cérémonie, les invités pourront recevoir Benjamin et moi avec des pétales de fleurs lorsque nous quitterons l'église.
+                                Cette tradition symbolise la fertilité et la fécondité des jeunes mariés.
+                            </p>
                         </div>
+                        <button class="btn btn-primary" data-dismiss="modal" type="button">
+                            <i class="fa fa-times"></i>
+                            Fermer
+                        </button>
                     </div>
                 </div>
             </div>
@@ -888,8 +1123,8 @@ function callOrDisplay(number, id, cmd) {
     </div>
 </div>
 
-<!-- Modal 2 -->
-<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- RECEPTION -->
+<div class="portfolio-modal modal fade" a id="modalReception" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -900,25 +1135,36 @@ function callOrDisplay(number, id, cmd) {
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
+                        <h2 class="text-uppercase">Réception</h2>
                         <div class="modal-body">
                             <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Explore</li>
-                                <li>Category: Graphic Design</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fa fa-times"></i>
-                                Close Project
-                            </button>
+                            <p class="text-muted">
+                                Notre réception de mariage commencera vers 17h30' avec un cocktail de célébration au “Domaine des Cigognes”.
+                                “Domaine des Cigognes” est accessible en voiture et des places de parking gratuites, avec des gardes de sécurité, sont disponibles dans leur cour.
+                                Si vous ne venez pas dans votre propre voiture, nous vous recommandons d'utiliser l'une de ces applications mobiles, Uber ou Heetch, pour commander des taxis bon marché.
+                                Nous fournirons également deux minibus avec chauffeur pour nos invités venus de l'étranger.
+                                Ils vous attendront à l'extérieur de l'église à 16h55'.
+                            </p>
+                            <p class="text-muted">
+                                Le cocktail est suivi d'un dîner à partir de 19h45'.
+                                Intelligent, créatif et passionné, notre chef, <a
+                                    href="https://www.instagram.com/charleshenrilebrun/">Charles-Henri Lebrun</a><sup><a
+                                    href="#fn_cooker" id="ref_charles_henri_lebrun" style="color: black;">*</a></sup>, concoctera pour vous un délicieux menu !
+                            </p>
+                            <p class="text-muted">
+                                Outre la mise en place magique de notre réception de mariage préparée par Mélanie de <a
+                                    href="https://www.regie57.com/">Régie57</a>, de nombreuses animations et surprises auront lieu. <a
+                                    href="https://www.facebook.com/Azzaro-Production-%C3%89v%C3%A9nementiel-214476349017418/">Arnaud</a>, le DJ de notre mariage multiculturel animera la plupart d'entre elles. Nous vous laissons tout découvrir le grand jour !
+                            </p>
+                            <sup id="fn_cooker">* Charles-Henri Lebrun était un apprenti de <a
+                                    href="https://chef-de-cuisine-85.webself.net/accueil">Pascal Barthelet</a>,
+                                qui a cuisiné dans ou géré les cuisines de nombreux restaurants distingués et référencés dans le guide Michelin.
+                                <a href="#ref_charles_henri_lebrun" title="Jump back to Charles-Henri Lebrun 1 in the text.">↩</a></sup>
                         </div>
+                        <button class="btn btn-primary" data-dismiss="modal" type="button">
+                            <i class="fa fa-times"></i>
+                            Fermer
+                        </button>
                     </div>
                 </div>
             </div>
@@ -926,8 +1172,8 @@ function callOrDisplay(number, id, cmd) {
     </div>
 </div>
 
-<!-- Modal 3 -->
-<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- DRESS CODE -->
+<div class="portfolio-modal modal fade" a id="modalDressCode" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -938,25 +1184,26 @@ function callOrDisplay(number, id, cmd) {
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
+                        <h2 class="text-uppercase">Code vestimentaire</h2>
+                        <div class="modal-body text-muted">
                             <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Finish</li>
-                                <li>Category: Identity</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fa fa-times"></i>
-                                Close Project
-                            </button>
+                            <p class="text-muted">
+                                Notre mariage sera célébré dans une atmosphère glamour.
+                                Les robes longues ou mi-longues pour les femmes et les costumes pour les hommes conviennent parfaitement à notre style de mariage.
+                                Nous vous demandons de bien vouloir éviter les couleurs blanche et crème.
+                                Les femmes aimeraient peut-être changer leurs talons hauts plus tard dans la soirée avec des chaussures plus confortables pour mieux profiter de la fête.
+                            </p>
+                            <p class="text-muted">
+                                Le climat au mois de mars à Lille est relativement froid et pourrait être pluvieux.
+                                Le lieu de réception est à l'intérieur et réchauffé.
+                                Bien que l'église dispose de chauffage, il est possible qu'elle soit encore un peu froide à cause de sa grande surface.
+                                Alors n'oubliez pas de mettre un beau manteau !
+                            </p>
                         </div>
+                        <button class="btn btn-primary" data-dismiss="modal" type="button">
+                            <i class="fa fa-times"></i>
+                            Fermer
+                        </button>
                     </div>
                 </div>
             </div>
@@ -964,8 +1211,8 @@ function callOrDisplay(number, id, cmd) {
     </div>
 </div>
 
-<!-- Modal 4 -->
-<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- PHOTOS -->
+<div class="portfolio-modal modal fade" a id="modalPhotos" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -976,25 +1223,54 @@ function callOrDisplay(number, id, cmd) {
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
+                        <h2 class="text-uppercase">Photos</h2>
                         <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Lines</li>
-                                <li>Category: Branding</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fa fa-times"></i>
-                                Close Project
-                            </button>
+
+                            <p class="text-muted">
+                                <b>Bienvenue à notre mariage déconnecté !</b>
+                            </p>
+
+                            <p class="text-muted">
+                                Pendant que nous nous marions dans l'église, soyez notre invité et notre génial et renommé photographe,
+                                <a href="https://www.photocamex.com/">Julien Laurent-Georges</a><sup><a
+                                    href="#fn_photographer" id="julien_laurent_george" style="color: black;">*</a></sup>
+                                va gérer le reste !
+                                Ces moments vont vite, nous sommes sûrs que vous le savez bien, alors laissez vos téléphones et vos appareils photo et célébrez ces moments avec nous.
+                                Nous avons engagé un professionnel et nous préférons voir vos beaux visages et non vos appareils sur les photos qu'il prend.
+                            </p>
+
+                            <p class="text-muted">
+                                Notre photographe nous accompagnera toute la nuit pour notre mariage.
+                                Toutefois, si vous souhaitez prendre des photos à la réception, nous vous demandons de respecter notre vie privée et de ne pas publier de photo de nous sur les réseaux sociaux.
+                                Du moins pas sans notre consentement.
+                                Vous pouvez bien sûr publier des photos de vous-mêmes tant que les nouveaux mariés ne figurent pas sur les photos.
+                            </p>
+
+                            <p class="text-muted">
+                                En résumé, nous vous invitons à profiter de cette journée spéciale avec nous.
+                                Ne prenez pas de photos dans l’église afin que vous ne figuriez pas dans les photos officielles avec votre appareil et que vous ne compliquiez pas l’accessibilité du photographe aux clichés souhaités.
+                                Aussi, ne postez aucune photo de nous sur les réseaux sociaux.
+                            </p>
+
+                            <p class="text-muted">
+                                Enfin, assurez-vous que nous partagerons avec vous la galerie de photos officielles quelques semaines après le mariage.
+                            </p>
+
+                            <p class="text-muted">
+                                <img src="img/info/photo/image1_crossed.png" width=100%>
+                                <img src="img/info/photo/image2_crossed.png" width=100%>
+                            <h3><b>Ne soyez pas comme ces gens !</b></h3>
                         </div>
+                        <sup id="fn_photographer">* Julien Laurent-Georges est élu meilleur photographe français par <a
+                                href="https://ziwa.zankyou.com/fr">ZANKYOU INTERNATIONAL WEDDING AWARDS 2018</a>.
+                            Il est également élu 4ème photographe de mariage du monde pour l'hiver 2018 par <a
+                                    href="https://www.ispwp.com/">ISPWP</a>.<a href="#julien_laurent_george"
+                                                                               title="Jump back to footnote 1 in the text.">↩</a></sup>
+                        <br>
+                        <button class="btn btn-primary" data-dismiss="modal" type="button">
+                            <i class="fa fa-times"></i>
+                            Fermer
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1002,8 +1278,8 @@ function callOrDisplay(number, id, cmd) {
     </div>
 </div>
 
-<!-- Modal 5 -->
-<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- GIFTS -->
+<div class="portfolio-modal modal fade" a id="modalGifts" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -1014,25 +1290,24 @@ function callOrDisplay(number, id, cmd) {
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
+                        <h2 class="text-uppercase">Cadeaux</h2>
                         <div class="modal-body">
                             <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/05-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Southwest</li>
-                                <li>Category: Website Design</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fa fa-times"></i>
-                                Close Project
-                            </button>
+                            <p class="text-muted">
+                                Sachez que votre présence à notre mariage est le cadeau le plus précieux de tous les temps !
+                                Mais si vous envisagez de nous apporter un cadeau, nous vous remercions d’éviter toute fourniture ou décoration de la maison.
+                                Notre nid actuel est bien équipé et nous prévoyons de nous déplacer dans d'autres villes au cours des prochaines années.
+                            </p>
+                            <p class="text-muted">
+                                Par conséquent, nous serons heureux que vous préfériez offrir de l'argent pour nous aider à financer nos projets.
+                                Pour ce faire, les invités français peuvent contribuer à la <b> liste de mariage </b> disponible sur ce <a href="https://stephanie-benjamin.zankyou.com/fr/liste-de-mariage">lien</a> et les invités du Liban au <b>compte bancaire</b> désigné par son numéro sur la carte de mariage.
+                                Une urne sera également à votre disposition lors de la réception du mariage.
+                            </p>
                         </div>
+                        <button class="btn btn-primary" data-dismiss="modal" type="button">
+                            <i class="fa fa-times"></i>
+                            Fermer
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1040,8 +1315,8 @@ function callOrDisplay(number, id, cmd) {
     </div>
 </div>
 
-<!-- Modal 6 -->
-<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- POST WEDDING -->
+<div class="portfolio-modal modal fade" a id="modalPostWedding" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -1052,25 +1327,385 @@ function callOrDisplay(number, id, cmd) {
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
+                        <h2 class="text-uppercase">Après-mariage</h2>
                         <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
-                                repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
-                                nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Window</li>
-                                <li>Category: Photography</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fa fa-times"></i>
-                                Close Project
-                            </button>
+                            <p class="text-muted">
+                                Après le festin et toutes les activités passionnantes de notre mariage, il est tout à fait normal que vous vous sentiez un peu fatigué ou assoupi.
+                                Nous proposons donc à nos hôtes la possibilité de passer la nuit au “Domaine des Cigognes”.
+                                Si vous êtes intéressé, nous vous invitons à vérifier les chambres proposées, lofts, duplex et suites <a href="http://www.domainedescigognes.info/pages/decouvrez-nos-chambres">ici</a>.
+                            </p>
+                            <p class="text-muted">
+                                Nous demandons aux invités de payer leur nuit, mais nous les invitons à un brunch d'après-mariage en l'honneur des nouveaux mariés, le dimanche 24 mars, au “Domaine des Cigognes”.
+                            </p>
+                            <p class="text-muted">
+                                Si vous préférez rentrer chez vous après le mariage, veuillez <b>NE PAS BOIRE ET CONDUIRE</b>.
+                                Si vous avez bu ou que vous vous sentez fatigué, commandez un taxi.
+                            </p>
                         </div>
+                        <button class="btn btn-primary" data-dismiss="modal" type="button">
+                            <i class="fa fa-times"></i>
+                            Fermer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TRIP -->
+<div class="portfolio-modal modal fade" a id="modalVisa" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="text-uppercase">Trip Information</h2>
+                        <div class="modal-body">
+                            <p class="text-muted">
+                                Cette section est principalement dédiée à nos chers invités venus de l’étranger pour les aider à organiser leur voyage.
+                                Tout d’abord, assurez-vous de commencer votre demande de visa auprès de l’ambassade de France 3 mois avant la date du mariage.
+                                Ces procédures peuvent prendre beaucoup de temps.
+                            </p>
+                            <p class="text-muted">
+                                Pour plus d'informations sur les documents nécessaires, consultez ce <a
+                                    href="https://fr.tlscontact.com/lb/BEY/page.php?pid=private_less_90">lien</a>.
+                                Si nécessaire, nous pouvons vous envoyer une lettre d'invitation pour approuver votre demande de visa.
+                            </p>
+                            <p class="text-muted">
+                                Le meilleur moyen pour nos invités du Liban, du Canada, de Dubaï, de Grèce, d'Allemagne et d'Arabie saoudite pour se rendre à Lille est par avion en direction de Paris ou de Bruxelles, puis en train (TGV) ou en bus pour Lille.
+                                En raison de la densité de la circulation à Paris et à Bruxelles et du coût du trajet, nous <b>ne recommandons pas</b> de prendre un <b>taxi de l'aéroport à Lille</b>.
+                            </p>
+                            <p class="text-muted">
+                                Lille est accessible depuis les aéroports <i>Charles de Gaulle (CDG)</i>,<i> Orly </i>et<i> Bruxelles (BRU)</i>.
+                                Lille est également accessible en train ou en bus depuis Berlin, mais nous ne recommandons pas ce type de voyage car il est épuisant et prend beaucoup de temps.
+                                Nous préférons que vous veniez en avion.
+                            </p>
+                            <ol style="text-align: left">
+                                <li class="text-muted">
+                                    <b>Si vous arrivez à l'aéroport CDG</b>, vous devrez alors prendre le TGV directement de l'aéroport CDG à la gare de Lille.
+                                    Ce trajet en train dure environ 1 heure.
+                                    Lille a deux gares: <i>Lille Flandres</i> et <i>Lille Europe</i>.
+                                    Vous pouvez arriver à n'importe laquelle de ces deux stations.
+                                    Situées à seulement 400 mètres l'une de l'autre, les deux gares de Lille sont situées dans le centre-ville et desservies par le métro.
+                                    Pour acheter des billets de train Lille CDG, faites-le à l'avance, avant votre arrivée en France, en utilisant ce site:<a
+                                        href="https://www.oui.sncf/billet-train">https://www.oui.sncf/billet-train</a>.
+                                </li>
+                                <li class="text-muted">
+                                    <b>Si vous arrivez à l'aéroport d'Orly </b>, vous devrez ensuite vous rendre à la gare du Nord à Paris.
+                                    Pour savoir comment vous rendre à la gare du Nord depuis l'aéroport d'Orly, cliquez <a
+                                        href="https://www.rome2rio.com/s/Paris-Orly-Airport-ORY/Gare-du-Nord">ici</a>.
+                                    Ensuite, prenez le TGV depuis la gare du Nord jusqu'à l'une des gares de Lille, <i>Lille Flandres</i> ou <i>Lille Europe</i>.
+                                    Pour acheter des billets de train Gare du Nord Lille, faites-le avant votre arrivée en France en utilisant ce site: <a href="https://www.oui.sncf/billet-train"> https: //www.oui .sncf / billet-train </a>.
+                                </li>
+                                <li class="text-muted">
+                                    <b>Si vous arrivez à l'aéroport de Bruxelles (également appelé “aéroport de Bruxelles Zaventem”)</b>, vous pouvez prendre un bus de l'aéroport jusque Lille.
+                                    Ce trajet en bus dure environ 2 heures.
+                                    Pour acheter des billets de bus de l'aéroport BRU à Lille, faites-le avant votre arrivée en Belgique en utilisant ce site: <a href="https://www.ouibus.com">https://www.ouibus.com</a>
+                                    ou ce site web: <a href="https://www.flixbus.com/bus-schedule-bus-stop/brussels">https://www.flixbus.com/bus-schedule-bus-stop/brussels</a>.
+                                </li>
+                            </ol>
+                            <p class="text-muted">
+                                Personnellement, nous préférons nous rendre à l’aéroport CDG et en revenir, <i>i.e.</i>, la première option proposée.
+                                C'est la solution la plus pratique et la plus confortable.
+                                Nous avons vu que <a href="https://www.mea.com.lb/english/home">Middle East Airlines</a> avaient des billets à 450 $ pour un aller-retour Beyrouth-CDG.
+                                Nous pensons que c’est une bonne opportunité dont nos invités du Liban pourraient profiter.
+                            </p>
+                            <p class="text-muted">
+                                Une fois dans l'une des gares (<i>Lille Flandres</i> ou <i>Lille Europe</i>), ou dans la station de bus (ouibus / flixbus) de Lille, vous devez acheter des tickets de métro pour aller à votre Hotel.
+                                Les gares de Lille sont également des stations de métro et la station d'ouibus / flixbus est juste à côté de la station de métro.
+                                Voir <a href = "https://www.google.fr/maps/place/Lille/@50.6388352,3.0781068,18.38z/data=! 4m5!3m4!1s0x47c32a0aa5e28ecd:0xe5003a3b3a3a3aaaaaaaaaaaaaaaaaaaaaaaa"> ici </a> pour l'emplacement de la station d'ouibus / flixbus.
+                                Vous pouvez acheter les billets de métro sur place aux distributeurs automatiques de la station.
+                                La machine accepte les espèces et les cartes Visa/Mastercard en euros.
+                                Sinon, vous pouvez bien sûr appeler un taxi pour vous rendre de la gare/arrêt de bus de Lille à votre hôtel.
+                            </p>
+                        </div>
+                        <button class="btn btn-primary" data-dismiss="modal" type="button">
+                            <i class="fa fa-times"></i>
+                            Fermer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ACCOMODATION -->
+<div class="portfolio-modal modal fade" a id="modalAccomodation" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="text-uppercase">Hébergement à Lille</h2>
+                        <div class="modal-body">
+                            <p class="text-muted">
+                                Notre objectif est de faire en sorte que nos invités de l'étranger se sentent chez eux.
+                                Nous avons donc pensé à partager avec vous tous les détails importants pour votre voyage et votre séjour, et nous vous proposons également des suggestions d’hébergement à Lille.
+                            </p>
+                            <p class="text-muted">
+                                Nous vous recommandons de séjourner dans l'un des hôtels suivants:
+                            <ul class="text-muted" style="text-align: left">
+                                <li><a href="https://www.hotel-hiexlillecentre.com/fr/,">Holiday Inn</a> <i>(3-star
+                                    hotel)</i>,
+                                    75 Bis Rue Léon Gambetta, 59000 Lille (station de metro: République Beaux-Arts),
+                                </li>
+                                <li>
+                                    <a href="https://www.accorhotels.com/gb/hotel-0901-ibis-lille-centre-gares/index.shtml">Hotel
+                                        Ibis Lille Centre Gares</a> <i>(3-star hotel)</i>, 29 Av Charles St-Venant, Le
+                                    Forum,
+                                    59000 Lille
+                                    (station de metro: Gare Lille Flandres),
+                                </li>
+                                <li><a href="http://www.besthotel.fr/Lille"> Best Hotel</a> <i>(2-star hotel)</i>, 66
+                                    Rue
+                                    Littré, 59000 Lille
+                                    (station de metro: Gambetta).
+                                </li>
+                            </ul>
+                            <p class="text-muted">
+                                Tous ces hôtels sont abordables et très bien situés, dans le centre de Lille et à proximité des transports en commun.
+                            </p>
+
+                            <p class="text-muted">
+                                Voici un tableau qui établit une comparaison entre leurs prix:
+                            </p>
+                            <div style="overflow-x:auto;">
+                                <table class="text-muted" align="center" border="1" cellpadding="5">
+                                    <tr>
+                                        <td></td>
+                                        <td>Twin/nuit</td>
+                                        <td>Double/nuit</td>
+                                        <td>3singles/nuit</td>
+                                        <td>1Double+1single/nuit</td>
+                                        <td>Petit-déjeuner/personne/jour</td>
+                                        <td>Taxes/personne/nuit</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Holiday Inn</td>
+                                        <td>130€</td>
+                                        <td>130€</td>
+                                        <td>N/A</td>
+                                        <td>N/A</td>
+                                        <td>Inclus</td>
+                                        <td>1.65€</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ibis</td>
+                                        <td>100€</td>
+                                        <td>100€</td>
+                                        <td>N/A</td>
+                                        <td>N/A</td>
+                                        <td>10.5€</td>
+                                        <td>1.65€</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Best Hotel</td>
+                                        <td>87€</td>
+                                        <td>87€</td>
+                                        <td>100€</td>
+                                        <td>100€</td>
+                                        <td>8.70€</td>
+                                        <td>1.65€</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <p class="text-muted" style="text-align: center;">PS: Ces prix peuvent varier dans le temps.</p>
+
+                            <p class="text-muted">
+                                Vous pouvez contacter l'hôtel de votre choix par e-mail pour vérifier la disponibilité des chambres et faire une réservation.
+                                Ils vous expliqueront comment procéder pour le paiement.
+                                Voici un petit conseil : si vous les appelez et que vous réservez par téléphone, demandez une remise (généralement 10%).
+                                Vous pouvez également réserver votre chambre en ligne via leurs sites Web.
+                            </p>
+                        </div>
+                        <button class="btn btn-primary" data-dismiss="modal" type="button">
+                            <i class="fa fa-times"></i>
+                            Fermer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TOP -->
+<div class="portfolio-modal modal fade" a id="modalTop" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="text-uppercase">Top Things in Lille</h2>
+                        <div class="modal-body">
+                            <p class="text-muted">
+                                Lille est une belle ville du nord de la France, elle est surtout connue pour son climat froid et sa population chaleureuse.
+                                Les lillois parlent principalement le français, l'anglais, et le Ch’ti<sup><a href="#fn1" id="ref1" style="color: black;">*</a></sup>!
+                                Durant mes trois dernières années passées à Lille, je suis tombée amoureuse des routes et de la gastronomie de cette ville, ainsi que de Benjamin, qui est né et a grandi dans la région de Lille.
+                                Nous vous souhaitons d’apprécier votre séjour à Lille et nous vous recommandons quelques activités:
+                            </p>
+                            <ul class="text-muted" style="text-align: left">
+                                <li>Se perdre dans le vieux quartier historique de Lille (Le vieux-Lille).</li>
+                                <li>Visiter La Citadelle et le Palais des Beaux-Arts.</li>
+                                <li>Essayez les bières belges, qui sont plus fortes que votre bière classique: Tripel Karmeliet, La Chouffe, Kwak, Chimay bleu, Chimay rouge, Rince Cochon, etc.
+                                    On les trouve dans tous les bars de Lille et même dans les supermarchés.
+                                </li>
+                                <li>
+                                    Essayez les plats de fromage de Lille, en particulier celles à base de «Maroilles», comme le welsh au maroilles (voir l’assiette dans la vignette sur laquelle vous avez cliqué pour lire cette section). Attention, le maroilles sent.
+                                </li>
+                                <li>
+                                    Pour ceux qui ne sont pas amateurs de fromages, essayez la carbonade flamande, un ragoût de boeuf sucré-salé à l’oignon à la bière.
+                                </li>
+                            </ul>
+                            <p class="text-muted">
+                                Voici quelques restaurants que nous recommandons:
+                                <a href="https://www.google.fr/search?q=au+vieux+de+la+vieille&oq=au+vieux+de+&aqs=chrome.0.0j69i57j0l4.1504j0j1&sourceid=chrome&ie=UTF-8">
+                                    Estaminet Au Vieux de la Vieille
+                                </a>,
+                                <a href="https://www.google.fr/search?q=la+vieille+france+lille&oq=la+vieilelle+frace&aqs=chrome.1.69i57j0l5.2686j0j1&sourceid=chrome&ie=UTF-8">
+                                    Estaminet la Vieille France
+                                </a>, and
+                                <a href="https://www.google.fr/search?q=le+broc+lille&oq=Le+broc+&aqs=chrome.0.0l3j69i57j0l2.3253j0j9&sourceid=chrome&ie=UTF-8">
+                                    Le Broc
+                                </a>. All these restaurants are available upon reservation.
+                                We also recommend waffles at
+                                <a href="https://www.google.fr/search?ei=lp7tW-vCDa6XlwT2vr6QCg&q=m%C3%A9ert&oq=m%C3%A9ert&gs_l=psy-ab.3..0i203k1l5j0i30k1l4j0i5i10i30k1.366243.369514.0.370288.11.7.4.0.0.0.298.871.0j5j1.6.0....0...1.1.64.psy-ab..1.10.878...0j35i39k1j0i20i263k1j0i67k1j0i10i30k1j0i5i30k1.0.68sMta69osg">
+                                    Méert
+                                </a>. And finally, do not leave without trying the famous
+                                <a href="https://en.wikipedia.org/wiki/Merveilleux_(cake)">
+                                    Merveilleux
+                                </a>from
+                                <a href="https://www.google.fr/search?ei=UqDtW4jlMaLylwSy-LWwDw&q=aux+merveilleux+lille&oq=aux+merveilleux+lille&gs_l=psy-ab.3..0i203k1l9j0i30k1.7824.10509.0.10626.11.10.1.0.0.0.120.993.6j4.10.0....0...1.1.64.psy-ab..0.11.990...0i7i30k1j0i19k1j0i7i30i19k1j35i39k1j35i304i39k1j0i5i30k1j0i8i30k1j0i13k1.0.nG_xeT0RBmU">
+                                    Merveilleux de Fred.
+                                </a>
+                            </p>
+                            <p class="text-muted">
+                                En plus d’être une ville très agréable pour s'y détente, Lille est proche de la frontière belge, de Paris, à quelques heures de la Hollande, du Luxembourg et de l’Allemagne.
+                                Alors pensez à rester encore quelques jours pour profiter de cette position stratégique de Lille et visiter les villes voisines.
+                            </p>
+                            <table class="text-muted" align="center" border="1" cellpadding="5">
+                                <tr style="font-weight: bold;">
+                                    <td>Dest.</td>
+                                    <td>Train</td>
+                                    <td>Bus/Voit</td>
+                                </tr>
+                                <tr>
+                                    <td>Paris</td>
+                                    <td>1 heure</td>
+                                    <td>3 heures</td>
+                                </tr>
+                                <tr>
+                                    <td>Brussels</td>
+                                    <td>40 minutes</td>
+                                    <td>2 heures</td>
+                                </tr>
+                                <tr>
+                                    <td>Bruges</td>
+                                    <td>2 heure</td>
+                                    <td>1 heure et demi</td>
+                                </tr>
+                                <tr>
+                                    <td>Amsterdam</td>
+                                    <td>3 heures</td>
+                                    <td>4 heures</td>
+                                </tr>
+                            </table>
+                            <!--
+                            <ul style="text-align: left">
+                                <li>Paris is accessible by train (1 hour) or bus/car (3 hours).</li>
+                                <li>Brussels is accessible from Lille by train (40 minutes) or bus/car (2 hours).</li>
+                                <li>Bruges is accessible from Lille by train (2 hours) or bus/car (1 hour and the
+                                    half).
+                                </li>
+                                <li>Amsterdam is accessible from Lille by train (2 hours and the half) or bus/car (4
+                                    hours).
+                                </li>
+                            </ul>
+                            -->
+                            <p class="text-muted" style="text-align: center;">PS: Toutes les durées sont approximatives.</p>
+                            <p class="text-muted">
+                                Pour réserver des trains, visitez ce site web : <a href="https://www.oui.sncf/billet-train">oui.sncf</a>
+                            </p>
+                            <p class="text-muted">
+                                Pour réserver des bus, visitez ces sites :
+                            </p>
+                            <ul style="text-align: left; padding-left: 100px;">
+                                <li><a href="https://www.flixbus.com/bus-schedule-bus-stop/lille">flixbus</a></li>
+                                <li><a href="https://www.ouibus.com/bus-stops/lille">ouibus</a></li>
+                                <li><a href="https://www.cicevoyages.com/fr/index.php">cicevoyages</a></li>
+                            </ul>
+                            <sup id="fn1">* Ch’ti est le nom usuel donné au dialecte parlé dans la région Nord de la France.
+                                Cela peut être considéré comme une “distorsion du français”.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a></sup>
+                        </div>
+                        <button class="btn btn-primary" data-dismiss="modal" type="button">
+                            <i class="fa fa-times"></i>
+                            Fermer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- EMERGENCY CONTACT -->
+<div class="portfolio-modal modal fade" a id="modalEmergency" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="text-uppercase">Emergency Contact</h2>
+                        <div class="modal-body text-muted">
+                            <style>
+                                li {
+                                    margin: 10px;
+                                }
+                            </style>
+                            <ul class="text-muted" style="text-align: left;">
+                                Si vous avez une question ou une situation de dernière minute, veuillez contacter l’une des personnes suivantes, car Benjamin et moi pourrions être injoignable le grand jour.
+                                <li><b>Walter</b> Rudametkin, <i>le témoin:</i> +33 6 98 22 38 32.<br>
+                                    Walter parle français, anglais et espagnol.
+                                </li>
+                                <li><b>Marcia</b> Marron, <i>la femme du témoin:</i> +33 6 28 06 36 84.<br>
+                                    Marcia parle français, anglais et espagnol.
+                                </li>
+                                <li><b>Jad</b> Nassar, <i>un ami de la mariée:</i> +33 6 46 70 88 96 and +961 71 706 578
+                                    (WhatsApp).<br>
+                                    Jad parle arabe, français et anglais.
+                                </li>
+                                <li><b>Tonie</b> Fares, <i>la demoiselle d'honneur:</i> +33 7 89 00 09 02 and +961 3 646 323
+                                    (WhatsApp).<br>
+                                    Tonie parle arabe, français et anglais.
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-primary" data-dismiss="modal" type="button">
+                            <i class="fa fa-times"></i>
+                            Fermer
+                        </button>
                     </div>
                 </div>
             </div>
