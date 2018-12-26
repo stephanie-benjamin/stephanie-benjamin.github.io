@@ -25,8 +25,8 @@ var selected_suffix;
 
 var last_prefix = "last-";
 
-var main_course_1 = "Cod fillet with sun grilled vegetables, crushed potatoes with olive oil & sun dried tomato cream";
-var main_course_2 = "Noisette of lamb marinated at the orient parfum, roasted pear, glazed multicolored carrots & golden potatoes";
+var main_course_1 = 'Dos de cabillaud aux légumes du soleil grillés, écrasé de pomme de terre à l’huile d’olive & crème de tomates séchées';
+var main_course_2 = 'Noisette d’agneau mariné au parfum d’orient, poire rôtie, carottes multicolores glacées & pommes de terre dorées';
 
 /*
     ids of forms input
@@ -235,7 +235,7 @@ function get_next_screen(parent_fieldset) {
             }
         } else {
             next_screen = $(get_next_screen_id(adult_screen_id, is_last_adult() && no_children()));
-            next_screen.find('h3')[0].innerHTML = 'Adult ' + (current_nb_adult + 1);
+            next_screen.find('h3')[0].innerHTML = 'Adulte ' + (current_nb_adult + 1);
         }
     /* bambino screen validation */
     } else if (current_screen[0].id.includes("bambino")) {
@@ -306,7 +306,7 @@ jQuery(document).ready(function() {
             var next_screen_id = form_prefix_id + (is_last_adult() && no_children() ? last_prefix : "") +  adult_screen_id + selected_suffix;
             console.log("next_screen_id " + next_screen_id);
             next_screen = $(next_screen_id);
-            next_screen.find('h3')[0].innerHTML = 'Adult ' + (current_nb_adult + 1);
+            next_screen.find('h3')[0].innerHTML = 'Adulte ' + (current_nb_adult + 1);
         /* adult screen validation */
         } else {
             next_screen = get_next_screen(parent_fieldset);
@@ -333,7 +333,7 @@ jQuery(document).ready(function() {
                 prev_screen = $(form_prefix_id + first_screen_id);
             } else {
                 prev_screen = $(form_prefix_id + adult_screen_id + selected_suffix);
-                prev_screen.find('h3')[0].innerHTML = 'Adult ' + (current_nb_adult);
+                prev_screen.find('h3')[0].innerHTML = 'Adulte ' + (current_nb_adult);
                 current_nb_adult--;
                 restore_previous_answer_adult(prev_screen);
                 adults.splice(current_nb_adult, 1);
@@ -341,7 +341,7 @@ jQuery(document).ready(function() {
         } else if (current_screen[0].id.includes("bambino")) { // TODO end BAMBINOS
             if (current_nb_bambino == 0) { // it was the first bambino. We go back to adult
                 prev_screen = $(form_prefix_id + adult_screen_id + selected_suffix);
-                prev_screen.find('h3')[0].innerHTML = 'Adult ' + (current_nb_adult);
+                prev_screen.find('h3')[0].innerHTML = 'Adulte ' + (current_nb_adult);
                 current_nb_adult--;
                 restore_previous_answer_adult(prev_screen);
                 adults.splice(current_nb_adult, 1);
@@ -379,7 +379,7 @@ jQuery(document).ready(function() {
             scroll_to_class( $('.form-wizard'), 20 );
         });
         current_screen = next_screen;
-        $(this).parents('form').find('h3')[0].innerHTML = "Summary";
+        $(this).parents('form').find('h3')[0].innerHTML = "Résumé";
         display_summary(current_screen[0]);
         launch_requests();
     });
@@ -469,13 +469,21 @@ function display_summary(screen) {
 
 function build_cannot_attend_summary(list_of_names) {
     var newP = document.createElement('p');
-    newP.innerHTML = build_sentence_from_given_array_with_given_suffix(list_of_names, ' cannot attend.');
+    if (list_of_names.length > 1) {
+        newP.innerHTML = build_sentence_from_given_array_with_given_suffix(list_of_names, ' ne pourront pas être présent.');
+    } else {
+        newP.innerHTML = build_sentence_from_given_array_with_given_suffix(list_of_names, ' ne peut pas être présent.');
+    }
     return newP;
 }
 
 function build_will_stay_nigh(list_of_names) {
     var newP = document.createElement('p');
-    newP.innerHTML = build_sentence_from_given_array_with_given_suffix(list_of_names , ' will stay for the night.');
+    if (list_of_names.length > 1) {
+        newP.innerHTML = build_sentence_from_given_array_with_given_suffix(list_of_names , ' souhaitent rester pour la nuit dans une chambre au “Domaine des Cigognes”.');
+    } else {
+        newP.innerHTML = build_sentence_from_given_array_with_given_suffix(list_of_names , ' souhaite rester pour la nuit dans une chambre au “Domaine des Cigognes”.');
+    }
     return newP;
 }
 
@@ -493,12 +501,20 @@ function build_chosen_main_course() {
     var newDiv = document.createElement('div');
     if (adult_main_1.length > 0) {
         var newP = document.createElement('p');
-        newP.innerHTML = build_sentence_from_given_array_with_given_suffix(adult_main_1, ' will have ' + main_course_1);
+        if (adult_main_1.length > 1) {
+            newP.innerHTML = build_sentence_from_given_array_with_given_suffix(adult_main_1, ' auront ' + main_course_1);
+        } else {
+            newP.innerHTML = build_sentence_from_given_array_with_given_suffix(adult_main_1, ' aura ' + main_course_1);
+        }
         newDiv.appendChild(newP);
     }
     if (adult_main_2.length > 0) {
         newP = document.createElement('p');
-        newP.innerHTML = build_sentence_from_given_array_with_given_suffix(adult_main_2, ' will have ' + main_course_2);
+        if (adult_main_2.length > 1) {
+            newP.innerHTML = build_sentence_from_given_array_with_given_suffix(adult_main_2, ' auront ' + main_course_2);
+        } else {
+            newP.innerHTML = build_sentence_from_given_array_with_given_suffix(adult_main_2, ' aura ' + main_course_2);
+        }
         newDiv.appendChild(newP);
     }
     return newDiv;
@@ -512,7 +528,7 @@ function build_sentence_from_given_array_with_given_suffix(array, suffix) {
         }
     }
     if (array.length > 1) {
-        sentence += array[array.length - 2] + ' and ' + array[array.length - 1] + suffix;
+        sentence += array[array.length - 2] + ' et ' + array[array.length - 1] + suffix;
     } else {
         sentence += array[array.length - 1] + suffix;
     }
@@ -520,16 +536,21 @@ function build_sentence_from_given_array_with_given_suffix(array, suffix) {
 }
 
 function build_sentence_to_attend(list_of_names) {
-    var sentence = build_sentence_from_given_array_with_given_suffix(list_of_names, ' will attend to ');
+    var sentence = ''
+    if (list_of_names.length > 1) {
+        sentence += build_sentence_from_given_array_with_given_suffix(list_of_names, ' seront présents ');
+    } else {
+        sentence += build_sentence_from_given_array_with_given_suffix(list_of_names, ' sera présent ');
+    }
     if (vin_honneur) {
-        sentence += ' the vin d\'honneur';
+        sentence += ' au vin d\'honneur';
         if (banquet) {
-            sentence += ' and to the banquet.';
+            sentence += ' et au dîner.';
         } else {
             sentence += '.';
         }
     } else {
-        sentence += ' the banquet.';
+        sentence += ' au dîner.';
     }
     return sentence;
 }
