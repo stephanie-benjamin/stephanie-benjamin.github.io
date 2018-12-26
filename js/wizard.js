@@ -516,7 +516,11 @@ function build_sentence_from_given_array_with_given_suffix(array, suffix) {
     } else {
         sentence += array[array.length - 1] + suffix;
     }
-    return sentence + '.';
+    if (sentence.endswith('.')) {
+        return sentence;
+    } else {
+        return sentence + '.';
+    }
 }
 
 function build_sentence_to_attend(list_of_names) {
