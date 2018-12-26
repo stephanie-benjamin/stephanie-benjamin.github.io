@@ -493,12 +493,12 @@ function build_chosen_main_course() {
     var newDiv = document.createElement('div');
     if (adult_main_1.length > 0) {
         var newP = document.createElement('p');
-        newP.innerHTML = build_sentence_from_given_array_with_given_suffix(adult_main_1, ' will have ' + main_course_1);
+        newP.innerHTML = build_sentence_from_given_array_with_given_suffix(adult_main_1, ' will have ' + main_course_1 + '.');
         newDiv.appendChild(newP);
     }
     if (adult_main_2.length > 0) {
         newP = document.createElement('p');
-        newP.innerHTML = build_sentence_from_given_array_with_given_suffix(adult_main_2, ' will have ' + main_course_2);
+        newP.innerHTML = build_sentence_from_given_array_with_given_suffix(adult_main_2, ' will have ' + main_course_2 + '.');
         newDiv.appendChild(newP);
     }
     return newDiv;
@@ -516,11 +516,7 @@ function build_sentence_from_given_array_with_given_suffix(array, suffix) {
     } else {
         sentence += array[array.length - 1] + suffix;
     }
-    if (sentence.endswith('.')) {
-        return sentence;
-    } else {
-        return sentence + '.';
-    }
+    return sentence;
 }
 
 function build_sentence_to_attend(list_of_names) {
